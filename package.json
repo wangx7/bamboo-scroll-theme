@@ -23,6 +23,11 @@
         "path": "./themes/koi-noir-dark-color-theme.json"
       },
       {
+        "label": "Solarized Light Theme",
+        "uiTheme": "vs",
+        "path": "./themes/koi-noir-solarized-night-shift-color-theme.json"
+      },
+      {
         "label": "Palenight High Theme",
         "uiTheme": "vs-dark",
         "path": "./themes/koi-noir-palenight-high-color-theme.json"
