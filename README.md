@@ -26,5 +26,5 @@
 
 ## 预览
 
-- [浅色版 (竹简) - 效果预览](bamboo-scroll-paper-preview.html)
-- [深色版 (竹简墨夜) - 效果预览](bamboo-scroll-dark-preview.html)
+- [浅色版 (竹简) - 效果预览](https://raw.githack.com/wangx7/bamboo-scroll-theme/main/bamboo-scroll-paper-preview.html)
+- [深色版 (竹简墨夜) - 效果预览](https://raw.githack.com/wangx7/bamboo-scroll-theme/main/bamboo-scroll-dark-preview.html)
