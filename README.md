@@ -25,7 +25,7 @@ _快捷路径：`Cmd/Ctrl + K` -> `Cmd/Ctrl + T`。_
 
 ## 预览
 
-- [竹简（浅色） - 效果预览](https://raw.githack.com/wangx7/bamboo-scroll-theme/main/previews/bamboo-scroll-paper-preview.html)
-- [水墨丹青（浅色） - 效果预览](https://raw.githack.com/wangx7/bamboo-scroll-theme/main/previews/ink-wash-light-preview.html)
-- [竹简墨夜（深色） - 效果预览](https://raw.githack.com/wangx7/bamboo-scroll-theme/main/previews/bamboo-scroll-dark-preview.html)
-- [月涌大江流（深色） - 效果预览](https://raw.githack.com/wangx7/bamboo-scroll-theme/main/previews/moon-river-dark-preview.html)
+- [竹简（浅色） - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/bamboo-scroll-paper-preview.html)
+- [水墨丹青（浅色） - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/ink-wash-light-preview.html)
+- [竹简墨夜（深色） - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/bamboo-scroll-dark-preview.html)
+- [月涌大江流（深色） - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/moon-river-dark-preview.html)
