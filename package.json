@@ -1,7 +1,7 @@
 {
   "name": "bamboo-scroll-theme",
-  "displayName": "Bamboo Scroll Theme",
-  "description": "融合中国传统色彩与现代护眼美学的 VS Code 高级主题系列（竹简・竹简墨夜）。",
+  "displayName": "竹简 Theme",
+  "description": "竹简 Theme：融合中国传统色彩与现代护眼美学的 VS Code 高级主题系列（竹简・竹简墨夜）。",
   "version": "3.0.0",
   "publisher": "wangx123",
   "icon": "logo.png",
@@ -13,19 +13,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wangx7/koi-noir-theme.git"
+    "url": "https://github.com/wangx7/bamboo-scroll-theme.git"
   },
   "contributes": {
     "themes": [
       {
         "label": "竹简",
         "uiTheme": "vs",
-        "path": "./themes/koi-bamboo-scroll-light-color-theme.json"
+        "path": "./themes/bamboo-scroll-light-color-theme.json"
       },
       {
         "label": "竹简墨夜",
         "uiTheme": "vs-dark",
-        "path": "./themes/koi-bamboo-scroll-dark-color-theme.json"
+        "path": "./themes/bamboo-scroll-dark-color-theme.json"
       }
     ]
   }

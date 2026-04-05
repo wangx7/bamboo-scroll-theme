@@ -1,6 +1,6 @@
-# Koi Noir Theme
+# 竹简 Theme
 
-> 点墨成渊潜锦鲤，化筠为简蕴幽香。
+> 点墨成渊映竹影，化筠为简蕴幽香。
 > 指尖经纬裁风雨，且护明眸夜未央。
 
 一个包含多款风格化 VS Code 主题的配色集合，主打「护眼 + 格调 + 长时可读」。从中国传统色彩及竹简书写意象中取色，提供极佳的编码体验。
@@ -18,7 +18,7 @@
 
 ## 使用方式
 
-1. 在 VS Code 扩展市场搜索并安装 `Koi Noir Theme`。
+1. 在 VS Code 扩展市场搜索并安装 `竹简 Theme`。
 2. 打开命令面板（快捷键：`Cmd/Ctrl + Shift + P`）并执行 `Preferences: Color Theme`（首选项：颜色主题）。
 3. 选择 **竹简** 或 **竹简墨夜**。
 
@@ -26,5 +26,5 @@
 
 ## 预览
 
-- [浅色版 (竹简) - 效果预览](koi-paper-preview.html)
-- [深色版 (竹简墨夜) - 效果预览](koi-bamboo-scroll-dark-preview.html)
+- [浅色版 (竹简) - 效果预览](bamboo-scroll-paper-preview.html)
+- [深色版 (竹简墨夜) - 效果预览](bamboo-scroll-dark-preview.html)
