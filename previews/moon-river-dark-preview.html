@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>月涌大江流 - 预览</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night-0: #0A0E18;
+      --night-1: #0E1420;
+      
+      --night-2: #1C2129;
+      --night-3: #252B35;
+      --night-4: #2E3542;
+      --ink-0: #D6D2C4;
+      --ink-1: #B8B0A0;
+      --ink-2: #8E8578;
+      --line: #252B35;
+      --ochre: #D4A857;
+      --bamboo: #8CB87A;
+      --indigo: #6BAFC2;
+      --cinnabar: #CF7B5F;
+      --flax: #C8B07C;
+      --darkblue: #7A9EC2;
+      --rouge: #C88A9A;
+      --shadow: rgba(0, 0, 0, 0.42);
+      /* Moon River Palette */
+      --indigo-star: #9B8EC4;
+      --river-cyan: #6AADAB;
+      --moon-silver: #7EB4D8;
+      --mountain-moon: #A8B4C8;
+      --river-emerald: #88C49A;
+      --moon-white: #C8D0E0;
+      --star-amber: #D4B078;
+
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Noto Serif SC", serif;
+      color: var(--ink-0);
+      line-height: 1.75;
+      background:
+        radial-gradient(circle at 18% -8%, rgba(107, 175, 194, 0.08), transparent 42%),
+        radial-gradient(circle at 92% 8%, rgba(212, 168, 87, 0.07), transparent 34%),
+        linear-gradient(180deg, #0a0c0e 0%, var(--night-0) 34%, #080a0c 100%),
+        repeating-linear-gradient(
+          90deg,
+          rgba(212, 168, 87, 0.03) 0,
+          rgba(212, 168, 87, 0.03) 1px,
+          transparent 1px,
+          transparent 44px
+        );
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1160px, calc(100% - 40px));
+      margin: 30px auto 84px;
+    }
+
+    .hero {
+      position: relative;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(120deg, rgba(21, 25, 33, 0.94), rgba(15, 18, 21, 0.96)),
+        radial-gradient(circle at 90% 20%, rgba(212, 168, 87, 0.12), transparent 45%);
+      border-radius: 24px;
+      padding: 54px 56px 52px;
+      overflow: hidden;
+      box-shadow: 0 28px 56px -28px var(--shadow);
+      animation: rise 720ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -78px;
+      top: -86px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(214, 210, 196, 0.18), rgba(214, 210, 196, 0) 64%),
+        radial-gradient(circle at 55% 58%, rgba(212, 168, 87, 0.18), rgba(212, 168, 87, 0) 72%);
+      filter: blur(2px);
+      opacity: 0.95;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 0%, rgba(212, 168, 87, 0.05) 36%, transparent 69%);
+      transform: translateX(-100%);
+      animation: sweep 2.8s ease 620ms 1;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--ink-1);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    .brush {
+      font-family: "Ma Shan Zheng", cursive;
+      color: var(--indigo-star);
+      font-size: 1.02em;
+      margin-left: 0.2em;
+    }
+
+    .lede {
+      margin-top: 16px;
+      width: min(760px, 100%);
+      color: var(--ink-1);
+      font-size: 1.09rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .meta-pill {
+      border: 1px solid var(--line);
+      background: rgba(15, 18, 21, 0.62);
+      color: var(--ink-1);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+    }
+
+    .seal {
+      position: absolute;
+      right: 42px;
+      bottom: 28px;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 2px solid rgba(207, 123, 95, 0.56);
+      display: grid;
+      place-items: center;
+      font-family: "Ma Shan Zheng", cursive;
+      font-size: 30px;
+      color: var(--star-amber);
+      transform: rotate(-10deg);
+      opacity: 0.86;
+    }
+
+    .section {
+      margin-top: 26px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px;
+      background: linear-gradient(165deg, rgba(21, 25, 33, 0.95), rgba(15, 18, 21, 0.9));
+      box-shadow: 0 18px 40px -28px var(--shadow);
+      animation: rise 700ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+    }
+
+    .section:nth-of-type(2) { animation-delay: 90ms; }
+    .section:nth-of-type(3) { animation-delay: 170ms; }
+    .section:nth-of-type(4) { animation-delay: 240ms; }
+
+    .section h2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.44rem;
+      margin-bottom: 12px;
+      color: var(--ink-0);
+    }
+
+    .section h2::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: var(--ochre);
+      box-shadow: 0 6px 0 rgba(212, 168, 87, 0.4);
+    }
+
+    .section p {
+      color: var(--ink-1);
+      margin-bottom: 14px;
+    }
+
+    .palette {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+    }
+
+    .swatch {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 220ms ease, border-color 220ms ease;
+    }
+
+    .swatch:hover {
+      transform: translateY(-2px);
+      border-color: var(--night-4);
+    }
+
+    .swatch-color {
+      height: 60px;
+      display: grid;
+      place-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .swatch-meta {
+      background: var(--night-2);
+      padding: 10px 12px 12px;
+    }
+
+    
+    .swatch-imagery {
+      font-size: 0.76rem;
+      color: var(--ink-2);
+      font-style: italic;
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
+    .swatch-name {
+      font-size: 0.92rem;
+      color: var(--ink-0);
+      font-weight: bold;
+    }
+
+    .swatch-use {
+      margin-top: 4px;
+      font-size: 0.78rem;
+      color: var(--ink-2);
+      font-family: "JetBrains Mono", monospace;
+      line-height: 1.3;
+    }
+
+    .editor {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--night-1);
+    }
+
+    .editor-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--night-2);
+      background: var(--night-2);
+      color: var(--ink-2);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.84rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
+    }
+
+    .dot-red { background: #CF7B5F; }
+    .dot-amber { background: #D4A857; }
+    .dot-green { background: #8CB87A; }
+
+    .editor-body {
+      display: grid;
+      grid-template-columns: 66px 1fr;
+      min-height: 250px;
+    }
+
+    .gutter {
+      border-right: 1px solid var(--night-2);
+      background: var(--night-0);
+      color: var(--ink-2);
+      text-align: right;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.81rem;
+      line-height: 1.74;
+      padding: 16px 10px;
+      user-select: none;
+    }
+
+    .code {
+      padding: 16px 20px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.9rem;
+      line-height: 1.74;
+      overflow-x: auto;
+    }
+
+    .line { white-space: pre; }
+
+    .line.focus {
+      margin: 0 -20px;
+      padding: 0 20px;
+      background: var(--night-3);
+    }
+
+    .tk-silver { color: var(--ink-2); font-style: italic; }
+    .tk-moon { color: var(--ink-0); }
+    .tk-ochre { color: var(--indigo-star); }
+    .tk-bamboo { color: var(--river-emerald); }
+    .tk-indigo { color: var(--moon-silver); }
+    .tk-cinnabar { color: var(--star-amber); }
+    .tk-flax { color: var(--river-cyan); }
+    .tk-darkblue { color: var(--mountain-moon); }
+    .tk-rouge { color: var(--moon-white); font-style: normal; }
+
+    .grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(218px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      background: linear-gradient(160deg, rgba(30, 35, 43, 0.7), rgba(21, 25, 33, 0.9));
+    }
+
+    .card h3 {
+      color: var(--ink-0);
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.89rem;
+      color: var(--ink-1);
+    }
+
+    .install {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--night-0);
+      color: var(--ink-0);
+      font-family: "JetBrains Mono", monospace;
+      padding: 14px;
+      font-size: 0.88rem;
+      overflow-x: auto;
+    }
+
+    footer {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--ink-2);
+      font-size: 0.88rem;
+      animation: rise 700ms ease both;
+      animation-delay: 290ms;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(9px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes sweep {
+      from { transform: translateX(-120%); }
+      to { transform: translateX(120%); }
+    }
+
+    @media (max-width: 880px) {
+      .page {
+        width: min(1160px, calc(100% - 24px));
+        margin-top: 16px;
+      }
+
+      .hero,
+      .section {
+        padding: 22px;
+        border-radius: 14px;
+      }
+
+      .seal {
+        right: 16px;
+        bottom: 16px;
+        width: 62px;
+        height: 62px;
+        font-size: 22px;
+      }
+
+      .editor-body {
+        grid-template-columns: 1fr;
+      }
+
+      .gutter {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">水墨 Theme Collection</p>
+      <h1>月涌大江流 <span class="brush">夜泊</span></h1>
+      <p class="lede">
+        深蓝夜江底色配合幽白银蓝的点缀，提供高层级感的暗色高对比度护眼主题。
+      </p>
+      <div class="meta">
+        <span class="meta-pill">Dark & Cold Ink</span>
+        <span class="meta-pill">Traditional Palette</span>
+        <span class="meta-pill">Semantic Focus</span>
+      </div>
+      <div class="seal">墨</div>
+    </header>
+
+    <section class="section">
+      <h2>五色墨韵体系</h2>
+      <p>背景区分为从 <code>night-0</code> (漆黑) 到 <code>night-4</code> (苍灰) 五个层级，构建清晰的空间叠层。</p>
+      <p>语法高亮取自传统五正色系，低饱和度发色，辅以 WCAG AA 标准对比度校验，确保每个字眼晰却不刺目。</p>
+
+            <div class="palette">
+        <!-- Background -->
+        <article class="swatch">
+          <div class="swatch-color" style="background:var(--night-1);color:var(--ink-0);">#0E1420</div>
+          <div class="swatch-meta">
+            <p class="swatch-name">江底邃水</p>
+            <p class="swatch-imagery">浩渺深江</p>
+            <p class="swatch-use">Editor bg</p>
+          </div>
+        </article>
+        
+        <!-- Seven Colors -->
+        <article class="swatch">
+          <div class="swatch-color" style="background:var(--indigo-star);color:var(--night-0);">#9B8EC4</div>
+          <div class="swatch-meta">
+            <p class="swatch-name">星河靛紫</p>
+            <p class="swatch-imagery">夜空星色</p>
+            <p class="swatch-use">Keyword<br/>Operator</p>
+          </div>
+        </article>
+        
+        <article class="swatch">
+          <div class="swatch-color" style="background:var(--river-cyan);color:var(--night-0);">#6AADAB</div>
+          <div class="swatch-meta">
+            <p class="swatch-name">江波青碧</p>
+            <p class="swatch-imagery">月下江水</p>
+            <p class="swatch-use">Type<br/>Class Name</p>
+          </div>
+        </article>
+
+        <article class="swatch">
+          <div class="swatch-color" style="background:var(--moon-silver);color:var(--night-0);">#7EB4D8</div>
+          <div class="swatch-meta">
+            <p class="swatch-name">月影银蓝</p>
+            <p class="swatch-imagery">江面月影</p>
+            <p class="swatch-use">Function<br/>Method</p>
+          </div>
+        </article>
+        
+        <article class="swatch">
+          <div class="swatch-color" style="background:var(--mountain-moon);color:var(--night-0);">#A8B4C8</div>
+          <div class="swatch-meta">
+            <p class="swatch-name">远山月色</p>
+            <p class="swatch-imagery">朦胧山峦</p>
+            <p class="swatch-use">Property<br/>Attribute</p>
+          </div>
+        </article>
+
+        <article class="swatch">
+          <div class="swatch-color" style="background:var(--river-emerald);color:var(--night-0);">#88C49A</div>
+          <div class="swatch-meta">
+            <p class="swatch-name">汀洲翠微</p>
+            <p class="swatch-imagery">江畔草色</p>
+            <p class="swatch-use">String<br/>Inserted</p>
+          </div>
+        </article>
+
+        <article class="swatch">
+          <div class="swatch-color" style="background:var(--moon-white);color:var(--night-0);">#C8D0E0</div>
+          <div class="swatch-meta">
+            <p class="swatch-name">月下霜白</p>
+            <p class="swatch-imagery">清辉万物</p>
+            <p class="swatch-use">Decorator<br/>Variable</p>
+          </div>
+        </article>
+
+        <article class="swatch">
+          <div class="swatch-color" style="background:var(--star-amber);color:var(--night-0);">#D4B078</div>
+          <div class="swatch-meta">
+            <p class="swatch-name">星辰琥珀</p>
+            <p class="swatch-imagery">暖空微芒</p>
+            <p class="swatch-use">Number<br/>Constant</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>代码观感</h2>
+      <p>支持全栈高级语法高亮：为 JSON、JavaScript 与 Java 专门定制的丰富强调色。</p>
+
+      <div class="editor">
+        <div class="editor-head">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-amber"></span>
+          <span class="dot dot-green"></span>
+          <span>settings.json</span>
+        </div>
+        <div class="editor-body" style="min-height:160px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6</aside>
+          <pre class="code"><div class="line"><span class="tk-silver">{</span></div><div class="line">  <span class="tk-darkblue">"workbench.colorTheme"</span><span class="tk-silver">:</span> <span class="tk-bamboo">"月涌大江流"</span><span class="tk-silver">,</span></div><div class="line">  <span class="tk-darkblue">"editor.fontSize"</span><span class="tk-silver">:</span> <span class="tk-cinnabar">14</span><span class="tk-silver">,</span></div><div class="line focus">  <span class="tk-darkblue">"editor.semanticHighlighting.enabled"</span><span class="tk-silver">:</span> <span class="tk-cinnabar">true</span><span class="tk-silver">,</span></div><div class="line">  <span class="tk-darkblue">"window.zoomLevel"</span><span class="tk-silver">:</span> <span class="tk-cinnabar">1</span></div><div class="line"><span class="tk-silver">}</span></div></pre>
+        </div>
+      </div>
+
+      <div class="editor">
+        <div class="editor-head">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-amber"></span>
+          <span class="dot dot-green"></span>
+          <span>main.js</span>
+        </div>
+        <div class="editor-body" style="min-height:220px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</aside>
+          <pre class="code"><div class="line"><span class="tk-silver">// 初始化渲染器</span></div><div class="line"><span class="tk-ochre">import</span> <span class="tk-silver">{</span> <span class="tk-flax">Renderer</span> <span class="tk-silver">}</span> <span class="tk-ochre">from</span> <span class="tk-bamboo">'./core.js'</span><span class="tk-silver">;</span></div><div class="line"></div><div class="line"><span class="tk-ochre">function</span> <span class="tk-indigo">initTheme</span><span class="tk-silver">(</span><span class="tk-moon">options</span><span class="tk-silver">)</span> <span class="tk-silver">{</span></div><div class="line focus">  <span class="tk-ochre">const</span> <span class="tk-moon">app</span> <span class="tk-ochre">=</span> <span class="tk-ochre">new</span> <span class="tk-flax">Renderer</span><span class="tk-silver">(</span><span class="tk-moon">options</span><span class="tk-silver">);</span></div><div class="line">  <span class="tk-ochre">return</span> <span class="tk-moon">app</span><span class="tk-silver">.</span><span class="tk-indigo">mount</span><span class="tk-silver">(</span><span class="tk-bamboo">'#app'</span><span class="tk-silver">);</span></div><div class="line"><span class="tk-silver">}</span></div><div class="line"></div><div class="line"><span class="tk-indigo">initTheme</span><span class="tk-silver">({</span> <span class="tk-moon">mode</span><span class="tk-silver">:</span> <span class="tk-bamboo">'dark'</span> <span class="tk-silver">});</span></div></pre>
+        </div>
+      </div>
+      
+      <div class="editor">
+        <div class="editor-head">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-amber"></span>
+          <span class="dot dot-green"></span>
+          <span>Parser.java</span>
+        </div>
+        <div class="editor-body" style="min-height:230px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</aside>
+          <pre class="code"><div class="line"><span class="tk-rouge">@Override</span></div><div class="line"><span class="tk-ochre">public</span> <span class="tk-flax">String</span> <span class="tk-indigo">parseNode</span><span class="tk-silver">(</span><span class="tk-flax">ASTNode</span> <span class="tk-moon">node</span><span class="tk-silver">)</span> <span class="tk-silver">{</span></div><div class="line">    <span class="tk-flax">boolean</span> <span class="tk-moon">isValid</span> <span class="tk-ochre">=</span> <span class="tk-cinnabar">true</span><span class="tk-silver">;</span></div><div class="line">    <span class="tk-ochre">if</span> <span class="tk-silver">(</span><span class="tk-moon">node</span><span class="tk-silver">.</span><span class="tk-indigo">isEmpty</span><span class="tk-silver">())</span> <span class="tk-silver">{</span></div><div class="line">        <span class="tk-moon">System</span><span class="tk-silver">.</span><span class="tk-darkblue">out</span><span class="tk-silver">.</span><span class="tk-indigo">println</span><span class="tk-silver">(</span><span class="tk-bamboo">"Node empty"</span><span class="tk-silver">);</span></div><div class="line focus">        <span class="tk-ochre">return</span> <span class="tk-rouge">null</span><span class="tk-silver">;</span></div><div class="line">    <span class="tk-silver">}</span></div><div class="line">    <span class="tk-ochre">return</span> <span class="tk-moon">node</span><span class="tk-silver">.</span><span class="tk-darkblue">value</span><span class="tk-silver">;</span></div><div class="line"><span class="tk-silver">}</span></div></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>夜间冷墨蓝调</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>护眼基底</h3>
+          <p>从纯灰调整为冷墨蓝 <code>#151921</code>，降低暖黄光刺激，夜间观看更深邃舒适。</p>
+        </article>
+        <article class="card">
+          <h3>结构七色</h3>
+          <p>分离关键词（赭色）与类型（缃色）、属性（黛蓝）与常数（胭脂），避免大段同色。</p>
+        </article>
+        <article class="card">
+          <h3>对比度提升</h3>
+          <p>注释文字采用银灰 <code>#8E8578</code>，对比度达到 WCAG AA 4.6:1 级别，弱光下不眯眼。</p>
+        </article>
+        <article class="card">
+          <h3>支持全面</h3>
+          <p>新增括号彩虹色、补全搜索与高亮UI、定制了 Python 和 Java 乃至 Git 差异面板。</p>
+        </article>
+      </div>
+
+      <div class="install">Cmd/Ctrl + K → Cmd/Ctrl + T → 选择 月涌大江流</div>
+    </section>
+
+    <footer>
+      <p>月涌大江流 · 高级冷色系高层级感暗色主题</p>
+    </footer>
+  </main>
+</body>
+</html>

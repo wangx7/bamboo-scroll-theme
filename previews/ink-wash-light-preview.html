@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>水墨丹青 预览</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper-0: #F0E6D3;
+      --paper-1: #E8DDCA;
+      --paper-2: #E0D4C0;
+      --ink-900: #3C3836;
+      --ink-700: #5C5652;
+      --ink-500: #6A6575;
+      --line: #C7BCA5;
+      --focus: #8B4B34;
+      --bamboo: #466C44;
+      --mineral: #1B5B6B;
+      --umber: #8B4B34;
+      --seal: #B04C40;
+      --plum: #7A4050;
+      --shadow: rgba(60, 56, 54, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Noto Serif SC", serif;
+      color: var(--ink-900);
+      min-height: 100vh;
+      line-height: 1.75;
+      background:
+        linear-gradient(180deg, #f5ecdc 0%, var(--paper-0) 35%, #e8dec8 100%),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 42px,
+          rgba(106, 95, 82, 0.05) 42px,
+          rgba(106, 95, 82, 0.05) 46px
+        );
+      background-blend-mode: multiply;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1120px, calc(100% - 48px));
+      margin: 32px auto 80px;
+    }
+
+    .hero {
+      position: relative;
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, rgba(251, 243, 233, 0.96), rgba(232, 221, 204, 0.8));
+      border-radius: 24px;
+      padding: 56px 56px 48px;
+      box-shadow: 0 22px 50px -24px var(--shadow);
+      overflow: hidden;
+      animation: rise 700ms ease both;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -38px;
+      top: -56px;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(180, 106, 76, 0.42), rgba(180, 106, 76, 0));
+      filter: blur(1px);
+    }
+
+    .seal {
+      position: absolute;
+      right: 42px;
+      bottom: 34px;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      border: 2px solid rgba(180, 106, 76, 0.5);
+      color: var(--seal);
+      display: grid;
+      place-content: center;
+      font-family: "Ma Shan Zheng", cursive;
+      font-size: 28px;
+      transform: rotate(-11deg);
+      opacity: 0.9;
+    }
+
+    .eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      color: var(--ink-700);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3.8rem);
+      line-height: 1.12;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .brush {
+      font-family: "Ma Shan Zheng", cursive;
+      font-size: 1.1em;
+      color: var(--umber);
+      margin-left: 0.25em;
+    }
+
+    .lede {
+      width: min(760px, 100%);
+      color: var(--ink-700);
+      font-size: 1.12rem;
+      margin-top: 14px;
+    }
+
+    .hero-meta {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      background: rgba(243, 233, 215, 0.8);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      color: var(--ink-700);
+    }
+
+    .section {
+      margin-top: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 30px;
+      background: rgba(251, 243, 233, 0.9);
+      box-shadow: 0 16px 40px -30px var(--shadow);
+      animation: rise 700ms ease both;
+    }
+
+    .section:nth-of-type(2) { animation-delay: 110ms; }
+    .section:nth-of-type(3) { animation-delay: 180ms; }
+    .section:nth-of-type(4) { animation-delay: 260ms; }
+
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+      color: var(--ink-900);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section h2::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      background: var(--umber);
+      box-shadow: 0 6px 0 rgba(156, 119, 72, 0.45);
+    }
+
+    .section p {
+      color: var(--ink-700);
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .swatch {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: white;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .swatch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -18px var(--shadow);
+    }
+
+    .swatch-color {
+      height: 74px;
+      display: grid;
+      place-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .swatch-info {
+      padding: 11px 12px 12px;
+      background: var(--paper-2);
+    }
+
+    
+    .swatch-imagery {
+      font-size: 0.76rem;
+      color: var(--ink-500);
+      font-style: italic;
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
+    .swatch-name {
+      font-size: 0.93rem;
+      color: var(--ink-900);
+    }
+
+    .swatch-use {
+      font-size: 0.82rem;
+      color: var(--ink-700);
+      margin-top: 4px;
+    }
+
+    .editor {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 18px;
+      background: var(--paper-0);
+    }
+
+    .editor-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-1);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.84rem;
+      color: var(--ink-700);
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(78, 64, 50, 0.15) inset;
+    }
+
+    .dot-red { background: #bb6e55; }
+    .dot-amber { background: #b18a56; }
+    .dot-green { background: #799172; }
+
+    .editor-body {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      min-height: 360px;
+    }
+
+    .gutter {
+      border-right: 1px solid var(--line);
+      background: var(--paper-1);
+      color: var(--ink-500);
+      text-align: right;
+      padding: 16px 10px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.82rem;
+      line-height: 1.75;
+      user-select: none;
+    }
+
+    .code {
+      padding: 16px 20px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.91rem;
+      line-height: 1.75;
+      overflow-x: auto;
+    }
+
+    .line {
+      white-space: pre;
+    }
+
+    .line.focus {
+      margin: 0 -20px;
+      padding: 0 20px;
+      background: rgba(206, 192, 172, 0.68);
+    }
+
+    .tk-comment { color: var(--ink-500); font-style: italic; }
+    .tk-keyword { color: var(--umber); }
+    .tk-type { color: var(--plum); }
+    .tk-function { color: var(--mineral); }
+    .tk-string { color: var(--bamboo); }
+    .tk-number { color: var(--seal); }
+    .tk-variable { color: var(--ink-900); }
+    .tk-operator { color: var(--umber); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: linear-gradient(165deg, rgba(251, 243, 233, 0.95), rgba(232, 221, 204, 0.65));
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--ink-900);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--ink-700);
+    }
+
+    .install {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      font-family: "JetBrains Mono", monospace;
+      color: var(--ink-900);
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 26px;
+      color: var(--ink-500);
+      font-size: 0.9rem;
+      animation: rise 700ms ease both;
+      animation-delay: 320ms;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        width: min(1120px, calc(100% - 28px));
+        margin-top: 18px;
+      }
+
+      .hero,
+      .section {
+        padding: 24px;
+        border-radius: 16px;
+      }
+
+      .seal {
+        right: 20px;
+        bottom: 18px;
+        width: 64px;
+        height: 64px;
+        font-size: 21px;
+      }
+
+      .editor-body {
+        grid-template-columns: 1fr;
+      }
+
+      .gutter {
+        display: none;
+      }
+
+      .line.focus {
+        margin: 0 -20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">水墨 Theme Collection</p>
+      <h1>水墨丹青 <span class="brush">水墨画</span></h1>
+      <p class="lede">
+        以竹简、墨色与纸纤维质感为原点打造的浅色主题。它不是“亮白 + 高饱和”的传统浅色风格，而是更克制、更耐看的书卷光谱，适合整天编码与阅读。
+      </p>
+      <div class="hero-meta">
+        <span class="pill">Light / Eye Care</span>
+        <span class="pill">Semantic Highlighting</span>
+        <span class="pill">Bamboo-Inspired Palette</span>
+      </div>
+      <div class="seal">印</div>
+    </header>
+
+    <section class="section">
+      <h2>设计主张</h2>
+      <p>
+        深入中国传统色彩体系，从长时阅读与书写的场景出发，构建出具备“深远”意境的顶层编程光谱：<strong>竹黄</strong>温润如旧书，<strong>焦墨</strong>深邃作主文，<strong>远山</strong>淡退为注释。
+      </p>
+      <p>
+        在强调色上，严选<strong>绿沉（漆翠）</strong>、<strong>空青（靛青）</strong>、<strong>赭石</strong>与<strong>朱砂</strong>、<strong>紫檀</strong>，它们共同形成了高辨识度但绝不刺眼的和谐色阶，极大缓解了传统白底高饱和主题带来的视觉抗拒与干涩。
+      </p>
+
+            <div class="palette">
+        <article class="swatch">
+          <div class="swatch-color" style="background:#F0E6D3;color:#3C3836;">#F0E6D3</div>
+          <div class="swatch-info">
+            <p class="swatch-name">竹黄</p>
+            <p class="swatch-imagery">书卷竹纹</p>
+            <p class="swatch-use">editor.background</p>
+          </div>
+        </article>
+        <article class="swatch">
+          <div class="swatch-color" style="background:#3C3836;color:#F0E6D3;">#3C3836</div>
+          <div class="swatch-info">
+            <p class="swatch-name">焦墨</p>
+            <p class="swatch-imagery">浓墨正文</p>
+            <p class="swatch-use">editor.foreground</p>
+          </div>
+        </article>
+        <article class="swatch">
+          <div class="swatch-color" style="background:#466C44;color:#F0E6D3;">#466C44</div>
+          <div class="swatch-info">
+            <p class="swatch-name">漆翠</p>
+            <p class="swatch-imagery">窗内修竹</p>
+            <p class="swatch-use">string / inserted</p>
+          </div>
+        </article>
+        <article class="swatch">
+          <div class="swatch-color" style="background:#1B5B6B;color:#F0E6D3;">#1B5B6B</div>
+          <div class="swatch-info">
+            <p class="swatch-name">靛青</p>
+            <p class="swatch-imagery">雨后远山</p>
+            <p class="swatch-use">function / method</p>
+          </div>
+        </article>
+        <article class="swatch">
+          <div class="swatch-color" style="background:#8B4B34;color:#F0E6D3;">#8B4B34</div>
+          <div class="swatch-info">
+            <p class="swatch-name">赭石</p>
+            <p class="swatch-imagery">古木夕阳</p>
+            <p class="swatch-use">keyword / operator</p>
+          </div>
+        </article>
+        <article class="swatch">
+          <div class="swatch-color" style="background:#B04C40;color:#F0E6D3;">#B04C40</div>
+          <div class="swatch-info">
+            <p class="swatch-name">朱砂</p>
+            <p class="swatch-imagery">落款红印</p>
+            <p class="swatch-use">number / boolean</p>
+          </div>
+        </article>
+        <article class="swatch">
+          <div class="swatch-color" style="background:#7A4050;color:#F0E6D3;">#7A4050</div>
+          <div class="swatch-info">
+            <p class="swatch-name">紫檀</p>
+            <p class="swatch-imagery">案头沉香</p>
+            <p class="swatch-use">type / class</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>代码观感</h2>
+      <p>下面示例对应主题中的真实语法色位，强调“结构先读懂，再看细节”的阅读顺序。涵盖 JSON、JavaScript 与 Java。</p>
+      <div class="editor">
+        <div class="editor-head">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-amber"></span>
+          <span class="dot dot-green"></span>
+          <span>settings.json</span>
+        </div>
+        <div class="editor-body" style="min-height:160px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6</aside>
+          <pre class="code"><div class="line"><span class="tk-operator">{</span></div><div class="line">  <span class="tk-variable">"workbench.colorTheme"</span><span class="tk-operator">:</span> <span class="tk-string">"水墨 Theme Light"</span><span class="tk-operator">,</span></div><div class="line">  <span class="tk-variable">"editor.fontSize"</span><span class="tk-operator">:</span> <span class="tk-number">14</span><span class="tk-operator">,</span></div><div class="line focus">  <span class="tk-variable">"editor.semanticHighlighting.enabled"</span><span class="tk-operator">:</span> <span class="tk-keyword">true</span><span class="tk-operator">,</span></div><div class="line">  <span class="tk-variable">"window.zoomLevel"</span><span class="tk-operator">:</span> <span class="tk-number">1</span></div><div class="line"><span class="tk-operator">}</span></div></pre>
+        </div>
+      </div>
+      
+      <div class="editor">
+        <div class="editor-head">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-amber"></span>
+          <span class="dot dot-green"></span>
+          <span>main.js</span>
+        </div>
+        <div class="editor-body" style="min-height:220px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</aside>
+          <pre class="code"><div class="line"><span class="tk-comment">// 初始化渲染器</span></div><div class="line"><span class="tk-keyword">import</span> <span class="tk-operator">{</span> <span class="tk-variable">Renderer</span> <span class="tk-operator">}</span> <span class="tk-keyword">from</span> <span class="tk-string">'./core.js'</span><span class="tk-operator">;</span></div><div class="line"></div><div class="line"><span class="tk-keyword">function</span> <span class="tk-function">initTheme</span><span class="tk-operator">(</span><span class="tk-variable">options</span><span class="tk-operator">)</span> <span class="tk-operator">{</span></div><div class="line focus">  <span class="tk-keyword">const</span> <span class="tk-variable">app</span> <span class="tk-operator">=</span> <span class="tk-keyword">new</span> <span class="tk-type">Renderer</span><span class="tk-operator">(</span><span class="tk-variable">options</span><span class="tk-operator">)</span><span class="tk-operator">;</span></div><div class="line">  <span class="tk-keyword">return</span> <span class="tk-variable">app</span><span class="tk-operator">.</span><span class="tk-function">mount</span><span class="tk-operator">(</span><span class="tk-string">'#app'</span><span class="tk-operator">)</span><span class="tk-operator">;</span></div><div class="line"><span class="tk-operator">}</span></div><div class="line"></div><div class="line"><span class="tk-function">initTheme</span><span class="tk-operator">({</span> <span class="tk-variable">mode</span><span class="tk-operator">:</span> <span class="tk-string">'light'</span> <span class="tk-operator">})</span><span class="tk-operator">;</span></div></pre>
+        </div>
+      </div>
+
+      <div class="editor">
+        <div class="editor-head">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-amber"></span>
+          <span class="dot dot-green"></span>
+          <span>Parser.java</span>
+        </div>
+        <div class="editor-body" style="min-height:230px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</aside>
+          <pre class="code"><div class="line"><span class="tk-type">@Override</span></div><div class="line"><span class="tk-keyword">public</span> <span class="tk-type">String</span> <span class="tk-function">parseNode</span><span class="tk-operator">(</span><span class="tk-type">ASTNode</span> <span class="tk-variable">node</span><span class="tk-operator">)</span> <span class="tk-operator">{</span></div><div class="line">  <span class="tk-keyword">boolean</span> <span class="tk-variable">isValid</span> <span class="tk-operator">=</span> <span class="tk-keyword">true</span><span class="tk-operator">;</span></div><div class="line">  <span class="tk-keyword">if</span> <span class="tk-operator">(</span><span class="tk-variable">node</span><span class="tk-operator">.</span><span class="tk-function">isEmpty</span><span class="tk-operator">())</span> <span class="tk-operator">{</span></div><div class="line">      <span class="tk-variable">System</span><span class="tk-operator">.</span><span class="tk-variable">out</span><span class="tk-operator">.</span><span class="tk-function">println</span><span class="tk-operator">(</span><span class="tk-string">"Node empty"</span><span class="tk-operator">)</span><span class="tk-operator">;</span></div><div class="line focus">      <span class="tk-keyword">return</span> <span class="tk-keyword">null</span><span class="tk-operator">;</span></div><div class="line">  <span class="tk-operator">}</span></div><div class="line">  <span class="tk-keyword">return</span> <span class="tk-variable">node</span><span class="tk-operator">.</span><span class="tk-variable">value</span><span class="tk-operator">;</span></div><div class="line"><span class="tk-operator">}</span></div></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>护眼与层级策略</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>正文优先</h3>
+          <p>主文本使用低蓝光深墨色，与竹纸背景形成稳定对比，不靠高饱和抢注意力。</p>
+        </article>
+        <article class="card">
+          <h3>强调克制</h3>
+          <p>关键词、函数、字符串三组强调色分工明确，但明度接近，减少跳色负担。</p>
+        </article>
+        <article class="card">
+          <h3>语义增强</h3>
+          <p>扩展 readonly、decorator、defaultLibrary 等语义 token，提升 TypeScript 等语言可读性。</p>
+        </article>
+        <article class="card">
+          <h3>全天候使用</h3>
+          <p>选中态、行高亮与 hover 均采用温和纸阶层次，降低频繁切换焦点时的眼压。</p>
+        </article>
+      </div>
+      <div class="install">
+        Cmd/Ctrl + K → Cmd/Ctrl + T → 选择 水墨丹青
+      </div>
+    </section>
+
+    <footer>
+      <p>水墨丹青 · 为长时编程准备的水墨风浅色主题</p>
+    </footer>
+  </main>
+</body>
+</html>

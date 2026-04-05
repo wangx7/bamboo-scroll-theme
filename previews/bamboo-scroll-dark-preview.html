@@ -240,6 +240,15 @@
       padding: 10px 12px 12px;
     }
 
+    
+    .swatch-imagery {
+      font-size: 0.76rem;
+      color: var(--ink-2);
+      font-style: italic;
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
     .swatch-name {
       font-size: 0.92rem;
       color: var(--ink-0);
@@ -425,7 +434,7 @@
 <body>
   <main class="page">
     <header class="hero">
-      <p class="eyebrow">竹简 Theme Collection</p>
+      <p class="eyebrow">水墨 Theme Collection</p>
       <h1>竹简墨夜 <span class="brush">夜读书</span></h1>
       <p class="lede">
         冷墨蓝调背景下的五色墨韵与七彩传统色。基于高级古典色重塑的深色主题，带来高对比度却低饱和的安静编码体验。
@@ -443,12 +452,13 @@
       <p>背景区分为从 <code>night-0</code> (漆黑) 到 <code>night-4</code> (苍灰) 五个层级，构建清晰的空间叠层。</p>
       <p>语法高亮取自传统五正色系，低饱和度发色，辅以 WCAG AA 标准对比度校验，确保每个字眼晰却不刺目。</p>
 
-      <div class="palette">
+            <div class="palette">
         <!-- Background -->
         <article class="swatch">
           <div class="swatch-color" style="background:var(--night-1);color:var(--ink-0);">#151921</div>
           <div class="swatch-meta">
-            <p class="swatch-name">玄墨底</p>
+            <p class="swatch-name">玄墨</p>
+            <p class="swatch-imagery">深夜暗室</p>
             <p class="swatch-use">Editor bg</p>
           </div>
         </article>
@@ -458,6 +468,7 @@
           <div class="swatch-color" style="background:var(--ochre);color:var(--night-0);">#D4A857</div>
           <div class="swatch-meta">
             <p class="swatch-name">赭石</p>
+            <p class="swatch-imagery">孤灯古灯</p>
             <p class="swatch-use">Keyword<br/>Operator</p>
           </div>
         </article>
@@ -466,6 +477,7 @@
           <div class="swatch-color" style="background:var(--flax);color:var(--night-0);">#C8B07C</div>
           <div class="swatch-meta">
             <p class="swatch-name">缃色</p>
+            <p class="swatch-imagery">泛黄旧卷</p>
             <p class="swatch-use">Type<br/>Class Name</p>
           </div>
         </article>
@@ -474,6 +486,7 @@
           <div class="swatch-color" style="background:var(--indigo);color:var(--night-0);">#6BAFC2</div>
           <div class="swatch-meta">
             <p class="swatch-name">靛青</p>
+            <p class="swatch-imagery">窗畔冷月</p>
             <p class="swatch-use">Function<br/>Method</p>
           </div>
         </article>
@@ -482,6 +495,7 @@
           <div class="swatch-color" style="background:var(--darkblue);color:var(--night-0);">#7A9EC2</div>
           <div class="swatch-meta">
             <p class="swatch-name">黛蓝</p>
+            <p class="swatch-imagery">夜幕远山</p>
             <p class="swatch-use">Property<br/>Attribute</p>
           </div>
         </article>
@@ -490,6 +504,7 @@
           <div class="swatch-color" style="background:var(--bamboo);color:var(--night-0);">#8CB87A</div>
           <div class="swatch-meta">
             <p class="swatch-name">竹青</p>
+            <p class="swatch-imagery">幽夜翠竹</p>
             <p class="swatch-use">String<br/>Inserted</p>
           </div>
         </article>
@@ -498,6 +513,7 @@
           <div class="swatch-color" style="background:var(--rouge);color:var(--night-0);">#C88A9A</div>
           <div class="swatch-meta">
             <p class="swatch-name">胭脂</p>
+            <p class="swatch-imagery">案头残红</p>
             <p class="swatch-use">Decorator<br/>Constant</p>
           </div>
         </article>
@@ -506,6 +522,7 @@
           <div class="swatch-color" style="background:var(--cinnabar);color:var(--night-0);">#CF7B5F</div>
           <div class="swatch-meta">
             <p class="swatch-name">朱砂</p>
+            <p class="swatch-imagery">朱批墨迹</p>
             <p class="swatch-use">Number<br/>Diagnostic</p>
           </div>
         </article>
@@ -514,18 +531,31 @@
 
     <section class="section">
       <h2>代码观感</h2>
-      <p>支持 Python 与 Java 高级语法高亮：装饰器、注解、异常处理都拥有专属颜色映射。</p>
+      <p>支持全栈高级语法高亮：为 JSON、JavaScript 与 Java 专门定制的丰富强调色。</p>
 
       <div class="editor">
         <div class="editor-head">
           <span class="dot dot-red"></span>
           <span class="dot dot-amber"></span>
           <span class="dot dot-green"></span>
-          <span>core_logic.py</span>
+          <span>settings.json</span>
         </div>
-        <div class="editor-body">
-          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14</aside>
-          <pre class="code"><div class="line"><span class="tk-silver"># 传统色映射机制</span></div><div class="line"><span class="tk-ochre">import</span> <span class="tk-moon">typing</span></div><div class="line"></div><div class="line"><span class="tk-rouge">@dataclass</span></div><div class="line"><span class="tk-ochre">class</span> <span class="tk-flax">ThemeColor</span><span class="tk-silver">:</span></div><div class="line">    <span class="tk-darkblue">name</span><span class="tk-ochre">:</span> <span class="tk-moon">str</span></div><div class="line">    <span class="tk-darkblue">hex_code</span><span class="tk-ochre">:</span> <span class="tk-moon">str</span></div><div class="line">    <span class="tk-darkblue">contrast</span><span class="tk-ochre">:</span> <span class="tk-moon">float</span></div><div class="line"></div><div class="line"><span class="tk-ochre">def</span> <span class="tk-indigo">calculate_contrast</span><span class="tk-silver">(</span><span class="tk-rouge">self</span><span class="tk-silver">)</span> <span class="tk-ochre">-></span> <span class="tk-moon">float</span><span class="tk-silver">:</span></div><div class="line focus">    <span class="tk-ochre">if</span> <span class="tk-rouge">self</span><span class="tk-silver">.</span><span class="tk-darkblue">hex_code</span> <span class="tk-ochre">==</span> <span class="tk-bamboo">"#0F1215"</span><span class="tk-silver">:</span></div><div class="line">        <span class="tk-ochre">raise</span> <span class="tk-cinnabar">ValueError</span><span class="tk-silver">(</span><span class="tk-bamboo">"Too dark"</span><span class="tk-silver">)</span></div><div class="line">    <span class="tk-ochre">return</span> <span class="tk-cinnabar">4.5</span></div></pre>
+        <div class="editor-body" style="min-height:160px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6</aside>
+          <pre class="code"><div class="line"><span class="tk-silver">{</span></div><div class="line">  <span class="tk-darkblue">"workbench.colorTheme"</span><span class="tk-silver">:</span> <span class="tk-bamboo">"竹简墨夜"</span><span class="tk-silver">,</span></div><div class="line">  <span class="tk-darkblue">"editor.fontSize"</span><span class="tk-silver">:</span> <span class="tk-cinnabar">14</span><span class="tk-silver">,</span></div><div class="line focus">  <span class="tk-darkblue">"editor.semanticHighlighting.enabled"</span><span class="tk-silver">:</span> <span class="tk-cinnabar">true</span><span class="tk-silver">,</span></div><div class="line">  <span class="tk-darkblue">"window.zoomLevel"</span><span class="tk-silver">:</span> <span class="tk-cinnabar">1</span></div><div class="line"><span class="tk-silver">}</span></div></pre>
+        </div>
+      </div>
+
+      <div class="editor">
+        <div class="editor-head">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-amber"></span>
+          <span class="dot dot-green"></span>
+          <span>main.js</span>
+        </div>
+        <div class="editor-body" style="min-height:220px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</aside>
+          <pre class="code"><div class="line"><span class="tk-silver">// 初始化渲染器</span></div><div class="line"><span class="tk-ochre">import</span> <span class="tk-silver">{</span> <span class="tk-flax">Renderer</span> <span class="tk-silver">}</span> <span class="tk-ochre">from</span> <span class="tk-bamboo">'./core.js'</span><span class="tk-silver">;</span></div><div class="line"></div><div class="line"><span class="tk-ochre">function</span> <span class="tk-indigo">initTheme</span><span class="tk-silver">(</span><span class="tk-moon">options</span><span class="tk-silver">)</span> <span class="tk-silver">{</span></div><div class="line focus">  <span class="tk-ochre">const</span> <span class="tk-moon">app</span> <span class="tk-ochre">=</span> <span class="tk-ochre">new</span> <span class="tk-flax">Renderer</span><span class="tk-silver">(</span><span class="tk-moon">options</span><span class="tk-silver">);</span></div><div class="line">  <span class="tk-ochre">return</span> <span class="tk-moon">app</span><span class="tk-silver">.</span><span class="tk-indigo">mount</span><span class="tk-silver">(</span><span class="tk-bamboo">'#app'</span><span class="tk-silver">);</span></div><div class="line"><span class="tk-silver">}</span></div><div class="line"></div><div class="line"><span class="tk-indigo">initTheme</span><span class="tk-silver">({</span> <span class="tk-moon">mode</span><span class="tk-silver">:</span> <span class="tk-bamboo">'dark'</span> <span class="tk-silver">});</span></div></pre>
         </div>
       </div>
       
@@ -534,11 +564,11 @@
           <span class="dot dot-red"></span>
           <span class="dot dot-amber"></span>
           <span class="dot dot-green"></span>
-          <span>Workspace.java</span>
+          <span>Parser.java</span>
         </div>
-        <div class="editor-body" style="min-height:200px">
+        <div class="editor-body" style="min-height:230px">
           <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</aside>
-          <pre class="code"><div class="line"><span class="tk-rouge">@Override</span></div><div class="line"><span class="tk-ochre">public</span> <span class="tk-flax">String</span> <span class="tk-indigo">toString</span><span class="tk-silver">(</span><span class="tk-flax">Context</span> <span class="tk-moon">ctx</span><span class="tk-silver">)</span> <span class="tk-silver">{</span></div><div class="line">    <span class="tk-flax">boolean</span> <span class="tk-moon">isValid</span> <span class="tk-ochre">=</span> <span class="tk-cinnabar">true</span><span class="tk-silver">;</span></div><div class="line">    <span class="tk-ochre">if</span> <span class="tk-silver">(</span><span class="tk-moon">ctx</span><span class="tk-silver">.</span><span class="tk-indigo">isEmpty</span><span class="tk-silver">())</span> <span class="tk-silver">{</span></div><div class="line">        <span class="tk-moon">System</span><span class="tk-silver">.</span><span class="tk-darkblue">out</span><span class="tk-silver">.</span><span class="tk-indigo">println</span><span class="tk-silver">(</span><span class="tk-bamboo">"Context empty"</span><span class="tk-silver">);</span></div><div class="line focus">        <span class="tk-ochre">return</span> <span class="tk-rouge">NULL_CTX</span><span class="tk-silver">;</span></div><div class="line">    <span class="tk-silver">}</span></div><div class="line">    <span class="tk-ochre">return</span> <span class="tk-moon">ctx</span><span class="tk-silver">.</span><span class="tk-darkblue">name</span><span class="tk-silver">;</span></div><div class="line"><span class="tk-silver">}</span></div></pre>
+          <pre class="code"><div class="line"><span class="tk-rouge">@Override</span></div><div class="line"><span class="tk-ochre">public</span> <span class="tk-flax">String</span> <span class="tk-indigo">parseNode</span><span class="tk-silver">(</span><span class="tk-flax">ASTNode</span> <span class="tk-moon">node</span><span class="tk-silver">)</span> <span class="tk-silver">{</span></div><div class="line">    <span class="tk-flax">boolean</span> <span class="tk-moon">isValid</span> <span class="tk-ochre">=</span> <span class="tk-cinnabar">true</span><span class="tk-silver">;</span></div><div class="line">    <span class="tk-ochre">if</span> <span class="tk-silver">(</span><span class="tk-moon">node</span><span class="tk-silver">.</span><span class="tk-indigo">isEmpty</span><span class="tk-silver">())</span> <span class="tk-silver">{</span></div><div class="line">        <span class="tk-moon">System</span><span class="tk-silver">.</span><span class="tk-darkblue">out</span><span class="tk-silver">.</span><span class="tk-indigo">println</span><span class="tk-silver">(</span><span class="tk-bamboo">"Node empty"</span><span class="tk-silver">);</span></div><div class="line focus">        <span class="tk-ochre">return</span> <span class="tk-rouge">null</span><span class="tk-silver">;</span></div><div class="line">    <span class="tk-silver">}</span></div><div class="line">    <span class="tk-ochre">return</span> <span class="tk-moon">node</span><span class="tk-silver">.</span><span class="tk-darkblue">value</span><span class="tk-silver">;</span></div><div class="line"><span class="tk-silver">}</span></div></pre>
         </div>
       </div>
     </section>

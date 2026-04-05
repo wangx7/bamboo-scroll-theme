@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>竹简 Theme Light 预览</title>
+  <title>竹简 预览</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -223,6 +223,15 @@
       background: var(--paper-2);
     }
 
+    
+    .swatch-imagery {
+      font-size: 0.76rem;
+      color: var(--ink-500);
+      font-style: italic;
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
     .swatch-name {
       font-size: 0.93rem;
       color: var(--ink-900);
@@ -405,8 +414,8 @@
 <body>
   <main class="page">
     <header class="hero">
-      <p class="eyebrow">竹简 Theme Collection</p>
-      <h1>竹简 Theme Light <span class="brush">竹简书</span></h1>
+      <p class="eyebrow">水墨 Theme Collection</p>
+      <h1>竹简 <span class="brush">竹简书</span></h1>
       <p class="lede">
         以竹简、墨色与纸纤维质感为原点打造的浅色主题。它不是“亮白 + 高饱和”的传统浅色风格，而是更克制、更耐看的书卷光谱，适合整天编码与阅读。
       </p>
@@ -427,11 +436,12 @@
         在强调色上，严选<strong>绿沉（漆翠）</strong>、<strong>空青（靛青）</strong>、<strong>赭石</strong>与<strong>朱砂</strong>、<strong>紫檀</strong>，它们共同形成了高辨识度但绝不刺眼的和谐色阶，极大缓解了传统白底高饱和主题带来的视觉抗拒与干涩。
       </p>
 
-      <div class="palette">
+            <div class="palette">
         <article class="swatch">
           <div class="swatch-color" style="background:#F0E6D3;color:#3C3836;">#F0E6D3</div>
           <div class="swatch-info">
             <p class="swatch-name">竹黄</p>
+            <p class="swatch-imagery">书卷竹纹</p>
             <p class="swatch-use">editor.background</p>
           </div>
         </article>
@@ -439,6 +449,7 @@
           <div class="swatch-color" style="background:#3C3836;color:#F0E6D3;">#3C3836</div>
           <div class="swatch-info">
             <p class="swatch-name">焦墨</p>
+            <p class="swatch-imagery">浓墨正文</p>
             <p class="swatch-use">editor.foreground</p>
           </div>
         </article>
@@ -446,6 +457,7 @@
           <div class="swatch-color" style="background:#466C44;color:#F0E6D3;">#466C44</div>
           <div class="swatch-info">
             <p class="swatch-name">漆翠</p>
+            <p class="swatch-imagery">窗内修竹</p>
             <p class="swatch-use">string / inserted</p>
           </div>
         </article>
@@ -453,6 +465,7 @@
           <div class="swatch-color" style="background:#1B5B6B;color:#F0E6D3;">#1B5B6B</div>
           <div class="swatch-info">
             <p class="swatch-name">靛青</p>
+            <p class="swatch-imagery">雨后远山</p>
             <p class="swatch-use">function / method</p>
           </div>
         </article>
@@ -460,6 +473,7 @@
           <div class="swatch-color" style="background:#8B4B34;color:#F0E6D3;">#8B4B34</div>
           <div class="swatch-info">
             <p class="swatch-name">赭石</p>
+            <p class="swatch-imagery">古木夕阳</p>
             <p class="swatch-use">keyword / operator</p>
           </div>
         </article>
@@ -467,6 +481,7 @@
           <div class="swatch-color" style="background:#B04C40;color:#F0E6D3;">#B04C40</div>
           <div class="swatch-info">
             <p class="swatch-name">朱砂</p>
+            <p class="swatch-imagery">落款红印</p>
             <p class="swatch-use">number / boolean</p>
           </div>
         </article>
@@ -474,6 +489,7 @@
           <div class="swatch-color" style="background:#7A4050;color:#F0E6D3;">#7A4050</div>
           <div class="swatch-info">
             <p class="swatch-name">紫檀</p>
+            <p class="swatch-imagery">案头沉香</p>
             <p class="swatch-use">type / class</p>
           </div>
         </article>
@@ -482,17 +498,43 @@
 
     <section class="section">
       <h2>代码观感</h2>
-      <p>下面示例对应主题中的真实语法色位，强调“结构先读懂，再看细节”的阅读顺序。</p>
+      <p>下面示例对应主题中的真实语法色位，强调“结构先读懂，再看细节”的阅读顺序。涵盖 JSON、JavaScript 与 Java。</p>
       <div class="editor">
         <div class="editor-head">
           <span class="dot dot-red"></span>
           <span class="dot dot-amber"></span>
           <span class="dot dot-green"></span>
-          <span>scroll-notes.ts</span>
+          <span>settings.json</span>
         </div>
-        <div class="editor-body">
-          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12</aside>
-          <pre class="code"><div class="line"><span class="tk-comment">// 竹简 Theme Light - 顶级书卷护眼色彩</span></div><div class="line"></div><div class="line"><span class="tk-keyword">interface</span> <span class="tk-type">ScrollPalette</span> <span class="tk-operator">{</span></div><div class="line">  <span class="tk-variable">background</span><span class="tk-operator">:</span> <span class="tk-type">string</span><span class="tk-operator">;</span></div><div class="line">  <span class="tk-variable">ink</span><span class="tk-operator">:</span> <span class="tk-type">string</span><span class="tk-operator">;</span></div><div class="line"><span class="tk-operator">}</span></div><div class="line"></div><div class="line"><span class="tk-keyword">const</span> <span class="tk-variable">palette</span> <span class="tk-operator">=</span> <span class="tk-operator">{</span></div><div class="line focus">  <span class="tk-variable">background</span><span class="tk-operator">:</span> <span class="tk-string">"#F0E6D3"</span><span class="tk-operator">,</span></div><div class="line">  <span class="tk-variable">ink</span><span class="tk-operator">:</span> <span class="tk-string">"#3C3836"</span></div><div class="line"><span class="tk-operator">}</span><span class="tk-operator">;</span></div><div class="line"><span class="tk-function">console.log</span><span class="tk-operator">(</span><span class="tk-string">"focus score:"</span><span class="tk-operator">,</span> <span class="tk-number">98</span><span class="tk-operator">)</span><span class="tk-operator">;</span></div></pre>
+        <div class="editor-body" style="min-height:160px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6</aside>
+          <pre class="code"><div class="line"><span class="tk-operator">{</span></div><div class="line">  <span class="tk-variable">"workbench.colorTheme"</span><span class="tk-operator">:</span> <span class="tk-string">"竹简"</span><span class="tk-operator">,</span></div><div class="line">  <span class="tk-variable">"editor.fontSize"</span><span class="tk-operator">:</span> <span class="tk-number">14</span><span class="tk-operator">,</span></div><div class="line focus">  <span class="tk-variable">"editor.semanticHighlighting.enabled"</span><span class="tk-operator">:</span> <span class="tk-keyword">true</span><span class="tk-operator">,</span></div><div class="line">  <span class="tk-variable">"window.zoomLevel"</span><span class="tk-operator">:</span> <span class="tk-number">1</span></div><div class="line"><span class="tk-operator">}</span></div></pre>
+        </div>
+      </div>
+      
+      <div class="editor">
+        <div class="editor-head">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-amber"></span>
+          <span class="dot dot-green"></span>
+          <span>main.js</span>
+        </div>
+        <div class="editor-body" style="min-height:220px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</aside>
+          <pre class="code"><div class="line"><span class="tk-comment">// 初始化渲染器</span></div><div class="line"><span class="tk-keyword">import</span> <span class="tk-operator">{</span> <span class="tk-variable">Renderer</span> <span class="tk-operator">}</span> <span class="tk-keyword">from</span> <span class="tk-string">'./core.js'</span><span class="tk-operator">;</span></div><div class="line"></div><div class="line"><span class="tk-keyword">function</span> <span class="tk-function">initTheme</span><span class="tk-operator">(</span><span class="tk-variable">options</span><span class="tk-operator">)</span> <span class="tk-operator">{</span></div><div class="line focus">  <span class="tk-keyword">const</span> <span class="tk-variable">app</span> <span class="tk-operator">=</span> <span class="tk-keyword">new</span> <span class="tk-type">Renderer</span><span class="tk-operator">(</span><span class="tk-variable">options</span><span class="tk-operator">)</span><span class="tk-operator">;</span></div><div class="line">  <span class="tk-keyword">return</span> <span class="tk-variable">app</span><span class="tk-operator">.</span><span class="tk-function">mount</span><span class="tk-operator">(</span><span class="tk-string">'#app'</span><span class="tk-operator">)</span><span class="tk-operator">;</span></div><div class="line"><span class="tk-operator">}</span></div><div class="line"></div><div class="line"><span class="tk-function">initTheme</span><span class="tk-operator">({</span> <span class="tk-variable">mode</span><span class="tk-operator">:</span> <span class="tk-string">'light'</span> <span class="tk-operator">})</span><span class="tk-operator">;</span></div></pre>
+        </div>
+      </div>
+
+      <div class="editor">
+        <div class="editor-head">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-amber"></span>
+          <span class="dot dot-green"></span>
+          <span>Parser.java</span>
+        </div>
+        <div class="editor-body" style="min-height:230px">
+          <aside class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</aside>
+          <pre class="code"><div class="line"><span class="tk-type">@Override</span></div><div class="line"><span class="tk-keyword">public</span> <span class="tk-type">String</span> <span class="tk-function">parseNode</span><span class="tk-operator">(</span><span class="tk-type">ASTNode</span> <span class="tk-variable">node</span><span class="tk-operator">)</span> <span class="tk-operator">{</span></div><div class="line">  <span class="tk-keyword">boolean</span> <span class="tk-variable">isValid</span> <span class="tk-operator">=</span> <span class="tk-keyword">true</span><span class="tk-operator">;</span></div><div class="line">  <span class="tk-keyword">if</span> <span class="tk-operator">(</span><span class="tk-variable">node</span><span class="tk-operator">.</span><span class="tk-function">isEmpty</span><span class="tk-operator">())</span> <span class="tk-operator">{</span></div><div class="line">      <span class="tk-variable">System</span><span class="tk-operator">.</span><span class="tk-variable">out</span><span class="tk-operator">.</span><span class="tk-function">println</span><span class="tk-operator">(</span><span class="tk-string">"Node empty"</span><span class="tk-operator">)</span><span class="tk-operator">;</span></div><div class="line focus">      <span class="tk-keyword">return</span> <span class="tk-keyword">null</span><span class="tk-operator">;</span></div><div class="line">  <span class="tk-operator">}</span></div><div class="line">  <span class="tk-keyword">return</span> <span class="tk-variable">node</span><span class="tk-operator">.</span><span class="tk-variable">value</span><span class="tk-operator">;</span></div><div class="line"><span class="tk-operator">}</span></div></pre>
         </div>
       </div>
     </section>
@@ -518,12 +560,12 @@
         </article>
       </div>
       <div class="install">
-        Cmd/Ctrl + K → Cmd/Ctrl + T → 选择 竹简 Theme Light
+        Cmd/Ctrl + K → Cmd/Ctrl + T → 选择 竹简
       </div>
     </section>
 
     <footer>
-      <p>竹简 Theme Light · 为长时编程准备的书卷浅色主题</p>
+      <p>竹简 · 为长时编程准备的书卷浅色主题</p>
     </footer>
   </main>
 </body>
