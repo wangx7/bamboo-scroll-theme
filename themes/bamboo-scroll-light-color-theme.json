@@ -483,11 +483,19 @@
     },
     {
       "scope": [
-        "entity.name.tag",
-        "support.class.component"
+        "entity.name.tag"
       ],
       "settings": {
         "foreground": "#b04c40"
+      }
+    },
+    {
+      "scope": [
+        "support.class.component",
+        "meta.tag.other.unrecognized entity.name.tag"
+      ],
+      "settings": {
+        "foreground": "#2e6b9e"
       }
     },
     {
