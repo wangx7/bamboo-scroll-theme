@@ -29,3 +29,36 @@ _快捷路径：`Cmd/Ctrl + K` -> `Cmd/Ctrl + T`。_
 - [水墨丹青（浅色） - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/ink-wash-light-preview.html)
 - [竹简墨夜（深色） - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/bamboo-scroll-dark-preview.html)
 - [月涌大江流（深色） - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/moon-river-dark-preview.html)
+
+## 🎨 进阶 — 背景装饰
+
+> VS Code 原生主题不支持背景图案，但可以搭配第三方扩展实现。我们为每款主题准备了匹配风格的水墨背景素材。
+
+### 素材预览
+
+| 主题 | 背景风格 | 文件 |
+| --- | --- | --- |
+| 竹简（浅色） | 水墨竹影 | `backgrounds/bamboo-light.png` |
+| 水墨丹青（浅色） | 水墨山水 | `backgrounds/inkwash-light.png` |
+| 竹简墨夜（深色） | 暗夜竹影 | `backgrounds/bamboo-dark.png` |
+| 月涌大江流（深色） | 月夜江流 | `backgrounds/moonriver-dark.png` |
+
+### 配置步骤
+
+**方式一：使用 [Background](https://marketplace.visualstudio.com/items?itemName=Katsute.code-background) 扩展（推荐）**
+
+1. 在扩展市场安装 **Background** (by Katsute)
+2. 打开 VS Code 设置（`Cmd/Ctrl + ,`），搜索 `background`
+3. 在 **Background: Editor Backgrounds** 栏点击「添加项」，填入图片**绝对路径**（注意不要有多余引号）：
+
+```
+/Users/你的用户名/路径/shuimo-theme/backgrounds/bamboo-light.png
+```
+
+4. （可选）调整透明度：在设置中搜索 `background.opacity`，建议设为 `0.1` ~ `0.15`
+5. **⚡ 关键步骤**：`Cmd/Ctrl + Shift + P` 打开命令面板，执行 **`Background: Install`**
+6. VS Code 提示重启，点击 **Restart** 即可生效
+
+> 💡 **提示**：如果修改了配置，每次都需要重新执行 `Background: Install` 才能生效。
+
+> ⚠️ **注意**：Background 扩展会修改 VS Code 内部文件，首次使用后会出现 "Your Code installation appears to be corrupt" 提示，点击齿轮图标选择 "Don't Show Again" 即可，**不影响正常使用**。VS Code 更新后需要重新执行 `Background: Install`。
