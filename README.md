@@ -32,7 +32,7 @@ _快捷路径：`Cmd/Ctrl + K` -> `Cmd/Ctrl + T`。_
 - [竹简墨夜（深色） - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/bamboo-scroll-dark-preview.html)
 - [月涌大江流（深色） - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/moon-river-dark-preview.html)
 
-## 🎨 进阶 — 背景装饰
+## 进阶 — 背景装饰
 > VS Code 原生主题不支持背景图案，但可以搭配第三方扩展实现。
 
 ### 配置步骤
@@ -44,10 +44,5 @@ _快捷路径：`Cmd/Ctrl + K` -> `Cmd/Ctrl + T`。_
 3. 在 **Background: Editor Backgrounds** 栏点击「添加项」，填入图片**绝对路径**（注意不要有多余引号）：
 ```
 https://colors.ichuantong.cn/assets/bg.texture-Dnw-puWb.png
-（图片源地址在 backgrounds/bg.png）
 ```
-4. （可选）调整透明度：在设置中搜索 `background.opacity`，建议设为 `0.1` ~ `0.15`
-5. **⚡ 关键步骤**：`Cmd/Ctrl + Shift + P` 打开命令面板，执行 **`Background: Install`**
-6. VS Code 提示重启，点击 **Restart** 即可生效
-
-> 💡 **提示**：如果修改了配置，每次都需要重新执行 `Background: Install` 才能生效。
+4. **⚡ 关键步骤**：`Cmd/Ctrl + Shift + P` 打开命令面板，执行 **`Background: Install`**
