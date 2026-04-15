@@ -36,11 +36,6 @@
         "path": "./themes/bamboo-scroll-light-color-theme.json"
       },
       {
-        "label": "竹简墨夜",
-        "uiTheme": "vs-dark",
-        "path": "./themes/bamboo-scroll-dark-color-theme.json"
-      },
-      {
         "label": "月涌大江流",
         "uiTheme": "vs-dark",
         "path": "./themes/moon-river-dark-color-theme.json"

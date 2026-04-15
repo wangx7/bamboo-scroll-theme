@@ -1,5 +1,5 @@
 {
-  "name": "竹林深处 (极致水墨)",
+  "name": "竹林深处",
   "type": "light",
   "semanticHighlighting": true,
   "colors": {
@@ -8,6 +8,10 @@
     "disabledForeground": "#10261080",
     "descriptionForeground": "#10261090",
     "editorCodeLens.foreground": "#10261090",
+    "gitlens.trailingLineForegroundColor": "#10261090",
+    "gitlens.lineHighlightBackgroundColor": "#96AB8140",
+    "gitlens.gutterBackgroundColor": "#789262",
+    "gitlens.gutterForegroundColor": "#10261090",
     "widget.border": "#556B4C",
     "widget.shadow": "#2A3A2260",
     "selection.background": "#CCBA8A80",
