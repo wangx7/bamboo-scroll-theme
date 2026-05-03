@@ -4,6 +4,7 @@
 
 ## 主题列表
 
+- **水墨画** - _经典系列_：水墨风格，还原传统意境。
 - **水墨丹青（浅）** - _水墨风系列_：淡雅柔和，降低浅色环境下的视觉负担。
 - **竹林深处（浅）** - _护眼系列_：青竹底色搭配墨色文字，极致清晰且长时办公不疲劳。
 
@@ -23,6 +24,7 @@ _快捷路径：`Cmd/Ctrl + K` -> `Cmd/Ctrl + T`。_
 
 ## 预览
 
+- [水墨画 - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/ink-wash-painting-preview.html)
 - [水墨丹青（浅色） - 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/ink-wash-light-preview.html)
 - [竹林深处（浅色）- 效果预览](https://raw.githack.com/wangx7/shuimo-theme/main/previews/bamboo-green-light-preview.html)
 

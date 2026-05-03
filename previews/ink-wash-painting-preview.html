@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>竹林深处 预览</title>
+    <title>水墨画 预览</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,30 +12,30 @@
     />
     <style>
       :root {
-        --paper-0: #789262;
-        --paper-1: #8DA272;
-        --paper-2: #96AB81;
-        --ink-900: #0A0A0A;
-        --ink-700: #102610;
-        --ink-500: #556B4C;
-        --line: #556B4C;
-        --focus: #001B42;
-        --tk-comment: #102610;
-        --tk-keyword: #001B42;
-        --tk-type: #2E0033;
-        --tk-function: #052616;
-        --tk-string: #47000B;
-        --tk-number: #361B00;
-        --tk-variable: #0A0A0A;
-        --tk-operator: #001B42;
-        --tk-json-prop: #2E0033;
-        --tk-parameter: #361B00;
-        --tk-annotation: #2E0033;
-        --tk-boolean: #361B00;
-        --tk-null: #361B00;
-        --tk-punctuation: #0A0A0A;
-        --line-focus: #8DA27270;
-        --shadow: rgba(10, 10, 10, 0.12);
+        --paper-0: #F5F2ED;
+        --paper-1: #EFECE8;
+        --paper-2: #E2DFDB;
+        --ink-900: #1a1a1a;
+        --ink-700: #3d3d3d;
+        --ink-500: #8a8a8a;
+        --line: #d5d2ce;
+        --focus: #2a5f8a;
+        --tk-comment: #C2C2C2;
+        --tk-keyword: #1A1A1A;
+        --tk-type: #3D3D3D;
+        --tk-function: #2A5F8A;
+        --tk-string: #3A7D44;
+        --tk-number: #A93226;
+        --tk-variable: #3D3D3D;
+        --tk-operator: #1A1A1A;
+        --tk-json-prop: #5C5C5C;
+        --tk-parameter: #5C5C5C;
+        --tk-annotation: #3D3D3D;
+        --tk-boolean: #A93226;
+        --tk-null: #A93226;
+        --tk-punctuation: #8A8A8A;
+        --line-focus: #EAE7E360;
+        --shadow: rgba(26, 26, 26, 0.12);
     }
 
       * {
@@ -50,8 +50,8 @@
         min-height: 100vh;
         line-height: 1.75;
         background:
-          linear-gradient(180deg, #8da272 0%, var(--paper-0) 35%, #6b8554 100%),
-          repeating-linear-gradient(90deg, transparent 0, transparent 42px, rgba(10, 38, 16, 0.05) 42px, rgba(10, 38, 16, 0.05) 46px);
+          linear-gradient(180deg, #f5ecdc 0%, var(--paper-0) 35%, #e8dec8 100%),
+          repeating-linear-gradient(90deg, transparent 0, transparent 42px, rgba(106, 95, 82, 0.05) 42px, rgba(106, 95, 82, 0.05) 46px);
         background-blend-mode: multiply;
       }
 
@@ -76,7 +76,7 @@
       .hero {
         position: relative;
         border: 1px solid var(--line);
-        background: linear-gradient(160deg, rgba(141, 162, 114, 0.96), rgba(120, 146, 98, 0.8));
+        background: linear-gradient(160deg, rgba(251, 243, 233, 0.96), rgba(232, 221, 204, 0.8));
         border-radius: 24px;
         padding: 56px 56px 48px;
         box-shadow: 0 22px 50px -24px var(--shadow);
@@ -164,7 +164,7 @@
         border: 1px solid var(--line);
         border-radius: 20px;
         padding: 30px;
-        background: rgba(120, 146, 98, 0.9);
+        background: rgba(251, 243, 233, 0.9);
         box-shadow: 0 16px 40px -30px var(--shadow);
         animation: rise 700ms ease both;
       }
@@ -441,15 +441,14 @@
     <main class="page">
       <header class="hero">
         <p class="eyebrow">水墨 Theme Collection</p>
-        <h1>竹林深处 <span class="brush">极致水墨</span></h1>
+        <h1>水墨画 <span class="brush">水墨画</span></h1>
         <p class="lede">
-          以竹简、墨色与纸纤维质感为原点打造的浅色主题。它不是“亮白 + 高饱和”的传统浅色风格，而是通过完全沉入 WCAG
-          极低亮度安全区，专为抗视觉疲劳设计的古典长时阅读光谱。
+          以竹简、墨色与纸纤维质感为原点打造的浅色主题。它不是“亮白 + 高饱和”的传统浅色风格，而是更克制、更耐看的书卷光谱，适合整天编码与阅读。
         </p>
         <div class="hero-meta">
           <span class="pill">Light / Eye Care</span>
           <span class="pill">Semantic Highlighting</span>
-          <span class="pill">Ultra-Dark Ink Palette</span>
+          <span class="pill">Ink-Wash Palette</span>
         </div>
         <div class="seal">印</div>
       </header>
@@ -457,66 +456,67 @@
       <section class="section">
         <h2>设计主张</h2>
         <p>
-          深入中国传统色彩体系，从真正物理感的光学反射出发，构建出具备极高清晰度与护眼深度的编程光谱：<strong>宣纸（竹林深处）</strong>温润如竹，<strong>纯墨</strong>深黑作主文，<strong>浓墨点染</strong>作各级强调。
+          深入中国传统色彩体系，从长时阅读与书写的场景出发，构建出具备“深远”意境的顶层编程光谱：<strong>宣纸</strong>温润如旧书，<strong>宿墨</strong>深邃作主文，<strong>浓墨</strong>淡退为点缀。
         </p>
         <p>
-          在强调色上，严选<strong>翠墨</strong>、<strong>紫墨</strong>、<strong>靛墨</strong>与<strong>茶墨</strong>，它们全部符合最低亮度法则，但极大的色相差使它们不刺眼却又极具分界感，彻底消除了眼疲劳。
+          在强调色上，严选<strong>苔绿</strong>、<strong>石青</strong>、<strong>青金石</strong>与<strong>朱磦</strong>，它们共同形成了高辨识度但绝不刺眼的和谐色阶，极大缓解了传统白底高饱和主题带来的视觉抗拒与干涩，展现真正的水墨格调。
         </p>
+
         <div class="palette">
           <article class="swatch">
-            <div class="swatch-color" style="background: #789262; color: #0a0a0a">#789262</div>
+            <div class="swatch-color" style="background: #f5f2ed; color: #3d3d3d">#F5F2ED</div>
             <div class="swatch-info">
-              <p class="swatch-name">竹简</p>
-              <p class="swatch-imagery">无眩光青绿</p>
+              <p class="swatch-name">宣纸</p>
+              <p class="swatch-imagery">微黄纸张</p>
               <p class="swatch-use">editor.background</p>
             </div>
           </article>
           <article class="swatch">
-            <div class="swatch-color" style="background: #0a0a0a; color: #789262">#0A0A0A</div>
+            <div class="swatch-color" style="background: #3d3d3d; color: #f5f2ed">#3D3D3D</div>
             <div class="swatch-info">
-              <p class="swatch-name">纯墨</p>
-              <p class="swatch-imagery">极黑正文</p>
+              <p class="swatch-name">宿墨</p>
+              <p class="swatch-imagery">深邃正文</p>
               <p class="swatch-use">editor.foreground</p>
             </div>
           </article>
           <article class="swatch">
-            <div class="swatch-color" style="background: #47000b; color: #789262">#47000B</div>
+            <div class="swatch-color" style="background: #3a7d44; color: #f5f2ed">#3A7D44</div>
             <div class="swatch-info">
-              <p class="swatch-name">绛墨</p>
-              <p class="swatch-imagery">深红朱砂</p>
+              <p class="swatch-name">绿松</p>
+              <p class="swatch-imagery">山野绿意</p>
               <p class="swatch-use">string / inserted</p>
             </div>
           </article>
           <article class="swatch">
-            <div class="swatch-color" style="background: #052616; color: #789262">#052616</div>
+            <div class="swatch-color" style="background: #2a5f8a; color: #f5f2ed">#2A5F8A</div>
             <div class="swatch-info">
-              <p class="swatch-name">翠墨</p>
-              <p class="swatch-imagery">深沉黛绿</p>
+              <p class="swatch-name">石青</p>
+              <p class="swatch-imagery">水墨点染</p>
               <p class="swatch-use">function / method</p>
             </div>
           </article>
           <article class="swatch">
-            <div class="swatch-color" style="background: #001b42; color: #789262">#001B42</div>
+            <div class="swatch-color" style="background: #1a1a1a; color: #f5f2ed">#1A1A1A</div>
             <div class="swatch-info">
-              <p class="swatch-name">靛墨</p>
-              <p class="swatch-imagery">极夜藏青</p>
+              <p class="swatch-name">浓墨</p>
+              <p class="swatch-imagery">纯墨字形</p>
               <p class="swatch-use">keyword / operator</p>
             </div>
           </article>
           <article class="swatch">
-            <div class="swatch-color" style="background: #361b00; color: #789262">#361B00</div>
+            <div class="swatch-color" style="background: #a93226; color: #f5f2ed">#A93226</div>
             <div class="swatch-info">
-              <p class="swatch-name">茶墨</p>
-              <p class="swatch-imagery">坚实深赭</p>
+              <p class="swatch-name">朱磦</p>
+              <p class="swatch-imagery">落款红印</p>
               <p class="swatch-use">number / boolean</p>
             </div>
           </article>
           <article class="swatch">
-            <div class="swatch-color" style="background: #2e0033; color: #789262">#2E0033</div>
+            <div class="swatch-color" style="background: #5c5c5c; color: #f5f2ed">#5C5C5C</div>
             <div class="swatch-info">
-              <p class="swatch-name">紫墨</p>
-              <p class="swatch-imagery">古典紫檀</p>
-              <p class="swatch-use">type / class</p>
+              <p class="swatch-name">淡墨</p>
+              <p class="swatch-imagery">辅助属性</p>
+              <p class="swatch-use">property / parameter</p>
             </div>
           </article>
         </div>
@@ -593,11 +593,11 @@
             <p>选中态、行高亮与 hover 均采用温和纸阶层次，降低频繁切换焦点时的眼压。</p>
           </article>
         </div>
-        <div class="install">Cmd/Ctrl + K → Cmd/Ctrl + T → 选择 竹林深处</div>
+        <div class="install">Cmd/Ctrl + K → Cmd/Ctrl + T → 选择 水墨画</div>
       </section>
 
       <footer>
-        <p>竹林深处 · 纯粹为抗视觉疲劳设计的古典长时阅读主题</p>
+        <p>水墨画 · 为长时编程准备的水墨风浅色主题</p>
       </footer>
     </main>
   </body>
