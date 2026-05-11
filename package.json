@@ -29,6 +29,11 @@
         "label": "竹林深处",
         "uiTheme": "vs",
         "path": "./themes/bamboo-green-light-color-theme.json"
+      },
+      {
+        "label": "墨竹",
+        "uiTheme": "vs",
+        "path": "./themes/mozhu-light-color-theme.json"
       }
     ]
   }

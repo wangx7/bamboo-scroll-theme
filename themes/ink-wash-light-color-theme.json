@@ -413,9 +413,7 @@
     "symbolIcon.textForeground": "#3A3631",
     "symbolIcon.typeParameterForeground": "#7B5DA0",
     "symbolIcon.unitForeground": "#AE4A38",
-    "symbolIcon.variableForeground": "#3A3631",
-    "symbolIcon.enumeratormemberForeground": "#AE4A38",
-    "symbolIcon.typeparameterForeground": "#5C5650"
+    "symbolIcon.variableForeground": "#3A3631"
   },
   "tokenColors": [
     {
