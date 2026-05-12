@@ -21,14 +21,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "水墨-深",
+        "label": "水墨·竹韵",
         "uiTheme": "vs",
-        "path": "./themes/bamboo-green-light-color-theme.json"
+        "path": "./themes/shuimo-zhuyun-theme.json"
       },
       {
-        "label": "水墨-浅",
+        "label": "水墨·丹青",
         "uiTheme": "vs",
-        "path": "./themes/ink-wash-light-color-theme.json"
+        "path": "./themes/shuimo-danqing-theme.json"
       }
     ]
   }
