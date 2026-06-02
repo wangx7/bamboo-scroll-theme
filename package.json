@@ -2,7 +2,7 @@
   "name": "shuimo-theme",
   "displayName": "水墨 Theme",
   "description": "点墨成渊映竹影，化筠为简蕴幽香。指尖经纬裁风雨，且护明眸夜未央。",
-  "version": "2.1.1",
+  "version": "2.2.2",
   "publisher": "wangx123",
   "icon": "logo.png",
   "scripts": {
@@ -29,6 +29,11 @@
         "label": "水墨·丹青",
         "uiTheme": "vs",
         "path": "./themes/shuimo-danqing-theme.json"
+      },
+      {
+        "label": "水墨·世界",
+        "uiTheme": "vs",
+        "path": "./themes/shuimo-shijie-theme.json"
       }
     ]
   }
