@@ -229,8 +229,8 @@
     "statusBar.background": "#F5F2E9",
     "statusBar.foreground": "#4D5154",
     "statusBar.border": "#00000000",
-    "statusBar.debuggingBackground": "#F5F2E9",
-    "statusBar.debuggingForeground": "#F5F2EB",
+    "statusBar.debuggingBackground": "#B83A32",
+    "statusBar.debuggingForeground": "#F5F2E9",
     "statusBar.noFolderBackground": "#F5F2E9",
     "statusBar.noFolderForeground": "#4D5154",
     "statusBarItem.activeBackground": "#00000010",
@@ -532,7 +532,7 @@
         "string punctuation.section.embedded source"
       ],
       "settings": {
-        "foreground": "#355C4D",
+        "foreground": "#282828",
         "fontStyle": ""
       }
     },
@@ -606,7 +606,7 @@
         "entity.other.attribute-name"
       ],
       "settings": {
-        "foreground": "#8A7D65",
+        "foreground": "#7A8287",
         "fontStyle": "italic"
       }
     },
