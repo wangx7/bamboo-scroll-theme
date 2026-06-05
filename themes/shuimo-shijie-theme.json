@@ -594,7 +594,8 @@
     {
       "scope": [
         "support.class.component",
-        "meta.tag.other.unrecognized entity.name.tag"
+        "meta.tag.other.unrecognized entity.name.tag",
+        "punctuation.definition.tag"
       ],
       "settings": {
         "foreground": "#0F1012",
