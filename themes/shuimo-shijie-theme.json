@@ -593,12 +593,13 @@
     },
     {
       "scope": [
+        "entity.name.tag.component",
         "support.class.component",
         "meta.tag.other.unrecognized entity.name.tag",
-        "punctuation.definition.tag"
+        "entity.name.tag.other.html"
       ],
       "settings": {
-        "foreground": "#0F1012",
+        "foreground": "#B83A32",
         "fontStyle": "bold"
       }
     },
