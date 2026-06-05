@@ -595,8 +595,7 @@
       "scope": [
         "entity.name.tag.component",
         "support.class.component",
-        "meta.tag.other.unrecognized entity.name.tag",
-        "entity.name.tag.other.html"
+        "entity.name.tag.html.vue"
       ],
       "settings": {
         "foreground": "#B83A32",
