@@ -21,19 +21,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "水墨·竹韵",
-        "uiTheme": "vs",
-        "path": "./themes/shuimo-zhuyun-theme.json"
-      },
-      {
-        "label": "水墨·丹青",
-        "uiTheme": "vs",
-        "path": "./themes/shuimo-danqing-theme.json"
-      },
-      {
         "label": "水墨·世界",
         "uiTheme": "vs",
         "path": "./themes/shuimo-shijie-theme.json"
+      },
+      {
+        "label": "水墨·竹韵",
+        "uiTheme": "vs",
+        "path": "./themes/shuimo-zhuyun-theme.json"
       }
     ]
   }
