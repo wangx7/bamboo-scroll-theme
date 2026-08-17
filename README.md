@@ -46,11 +46,11 @@
 
 ```jsonc
 "betterComments.tags": [
-  { "tag": "!",     "color": "#983029", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": true,  "italic": false },
-  { "tag": "?",     "color": "#20526F", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": true  },
-  { "tag": "TODO",  "color": "#8B4E3D", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": true,  "italic": false },
-  { "tag": "*",     "color": "#4F5B67", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": true  },
-  { "tag": "//",    "color": "#5B6E7D", "strikethrough": true,  "underline": false, "backgroundColor": "transparent", "bold": false, "italic": false }
+  { "tag": "!",     "color": "#823528", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": true,  "italic": false },
+  { "tag": "?",     "color": "#28465C", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": true  },
+  { "tag": "TODO",  "color": "#724933", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": true,  "italic": false },
+  { "tag": "*",     "color": "#525559", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": true  },
+  { "tag": "//",    "color": "#5C626C", "strikethrough": true,  "underline": false, "backgroundColor": "transparent", "bold": false, "italic": false }
 ]
 ```
 
