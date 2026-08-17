@@ -32,6 +32,42 @@
 
 ---
 
+## 推荐搭配
+
+水墨主题已为以下扩展预设配色，安装后即可获得一致的视觉体验。
+
+### Error Lens
+
+错误 / 警告 / 提示的行内高亮已与主题色板对齐：朱砂红表错误、赭石表警告、墨蓝表信息、灰表提示。无需额外配置。
+
+### Better Comments
+
+将以下配置复制到 `settings.json`，让注释按语义着色，与水墨色板保持一致：
+
+```jsonc
+"betterComments.tags": [
+  { "tag": "!",     "color": "#983029", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": true,  "italic": false },
+  { "tag": "?",     "color": "#20526F", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": true  },
+  { "tag": "TODO",  "color": "#8B4E3D", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": true,  "italic": false },
+  { "tag": "*",     "color": "#4F5B67", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": true  },
+  { "tag": "//",    "color": "#5B6E7D", "strikethrough": true,  "underline": false, "backgroundColor": "transparent", "bold": false, "italic": false }
+]
+```
+
+| 标签 | 语义 | 颜色 | 字体 |
+|---|---|---|---|
+| `!` | 警示 | 朱砂红 | 粗体 |
+| `?` | 疑问 | 墨蓝 | 斜体 |
+| `TODO` | 待办 | 赭石 | 粗体 |
+| `*` | 强调 | 描述墨 | 斜体 |
+| `//` | 弃用 | 灰 | 删除线 |
+
+### Todo Tree / TODO Highlight
+
+注释中的 `TODO` / `FIXME` / `XXX` / `HACK` / `NOTE` 关键字已通过 tokenColors 着色：`TODO` 朱砂红粗体、`FIXME`/`XXX` 赭石粗体、`HACK` 墨蓝斜体、`NOTE` 墨蓝斜体。
+
+---
+
 ## 安装
 
 VS Code 扩展市场搜索 `水墨 Theme` 安装。
