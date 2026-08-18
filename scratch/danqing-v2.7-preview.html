@@ -1,166 +1,663 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<title>水墨·丹青 v2.7 对比预览</title>
-<style>
-  body { background:#F6F5E1; color:#383A3D; font-family:"PingFang SC","Microsoft YaHei",sans-serif; margin:0; padding:32px 40px; }
-  h1 { font-size:22px; margin:0 0 4px; }
-  .sub { color:#5A5F66; font-size:13px; margin-bottom:28px; }
-  .cols { display:flex; gap:20px; flex-wrap:wrap; }
-  .panel { flex:1; min-width:420px; background:#F6F5E1; border:1px solid #d8d3bc; border-radius:10px; overflow:hidden; box-shadow:0 2px 10px #26262614; }
-  .panel .head { padding:8px 14px; font-size:12px; letter-spacing:2px; color:#FAF9F0; }
-  .old .head { background:#9A3B26; }
-  .new .head { background:#315D8C; }
-  .code { padding:18px 20px; font-family:"SF Mono",Menlo,Consolas,monospace; font-size:13px; line-height:1.65; min-height:520px; }
-  .badge { float:right; background:#FAF9F0; color:#383A3D; border-radius:20px; padding:1px 10px; font-size:11px; letter-spacing:1px; }
-  h2 { font-size:16px; margin:32px 0 12px; color:#2C2E31; border-left:4px solid #9A3B26; padding-left:10px; }
-  table { border-collapse:collapse; width:100%; background:#FAF9F0; border-radius:8px; overflow:hidden; }
-  th { background:#ECE8D0; color:#2C2E31; font-size:12px; padding:7px 10px; text-align:left; }
-  td { font-size:13px; }
-  code { font-family:Menlo,Consolas,monospace; background:#2626260D; padding:1px 5px; border-radius:3px; font-size:12px; }
-  .foot { margin-top:24px; color:#6E7278; font-size:12px; }
-</style>
-</head>
-<body>
-<h1>水墨·丹青 v2.7 <span style="font-size:14px;color:#9A3B26">改造预览</span></h1>
-<div class="sub">同一段 TypeScript 样例 · 左: v2.4 现状 / 右: v2.7 改造后 · scope 级配色自动解析</div>
-<div class="cols">
-  <div class="panel old"><div class="head">v2.4 旧版 <span class="badge">朱砂焦点 · 松绿注释</span></div>
-    <div class="code"><span style="color:#4C7548;font-style:italic;font-weight:400">// 丹青 v2.7 — 山色空蒙雨亦奇</span><span style="color:#9A3B26;font-style:normal;font-weight:bold">import </span><span style="color:#5A5F66">{ defineStore } </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">from </span><span style="color:#1F7A85">&#x27;pinia&#x27;</span><br><span style="color:#9A3B26">const </span><span style="color:#8A4B2F">API_BASE</span><span style="color:#5A5F66"> = </span><span style="color:#1F7A85">&#x27;https://api.example.com&#x27;</span><br><span style="color:#9A3B26;font-style:normal;font-weight:bold">export </span><span style="color:#232527;font-style:normal;font-weight:bold">function </span><span style="color:#315D8C">fetchUser</span><span style="color:#5A5F66">(</span><span style="color:#6F6040;font-style:italic;font-weight:400">id</span><span style="color:#5A5F66">: </span><span style="color:#232527">number</span><span style="color:#5A5F66">)</span><span style="color:#5A5F66">: </span><span style="color:#232527;font-style:normal;font-weight:bold">Promise</span><span style="color:#5A5F66">&lt;</span><span style="color:#232527;font-style:normal;font-weight:bold">User</span><span style="color:#5A5F66">&gt;</span><span style="color:#2A2C30"> </span><span style="color:#2A2C30">{</span><br><span style="color:#2A2C30">  </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">return </span><span style="color:#9A3B26">new </span><span style="color:#232527;font-style:normal;font-weight:bold">Promise</span><span style="color:#2A2C30">((resolve, reject) =&gt; </span><span style="color:#2A2C30">{</span><br><span style="color:#2A2C30">    </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">if </span><span style="color:#5A5F66">(</span><span style="color:#6F6040;font-style:italic;font-weight:400">id</span><span style="color:#5A5F66"> &lt;= </span><span style="color:#8A4B2F">0</span><span style="color:#5A5F66">)</span><span style="color:#2A2C30"> </span><span style="color:#2A2C30">{</span><br><span style="color:#2A2C30">      </span><span style="color:#6F6040;font-style:italic;font-weight:400">reject</span><span style="color:#2A2C30">(new </span><span style="color:#232527;font-style:normal;font-weight:bold">Error</span><span style="color:#1F7A85">(&#x27;invalid id&#x27;))</span><span style="color:#2A2C30">  </span><span style="color:#4C7548;font-style:italic;font-weight:400">// FIXME: 边界校验</span><br><span style="color:#2A2C30">    </span><span style="color:#2A2C30">}</span><br><span style="color:#2A2C30">    </span><span style="color:#9A3B26">const </span><span style="color:#2A2C30">user</span><span style="color:#5A5F66">: </span><span style="color:#232527;font-style:normal;font-weight:bold">User</span><span style="color:#5A5F66"> = </span><span style="color:#2A2C30">{ </span><span style="color:#2A2C30">id</span><span style="color:#5A5F66">, </span><span style="color:#2A2C30">name</span><span style="color:#5A5F66">: </span><span style="color:#1F7A85">&#x27;青竹&#x27;</span><span style="color:#5A5F66">, </span><span style="color:#2A2C30">tags</span><span style="color:#5A5F66">: </span><span style="color:#5A5F66">[</span><span style="color:#1F7A85">&#x27;admin&#x27;</span><span style="color:#5A5F66">]</span><span style="color:#2A2C30"> }</span><br><span style="color:#2A2C30">    </span><span style="color:#6F6040;font-style:italic;font-weight:400">resolve</span><span style="color:#5A5F66">(user)</span><br><span style="color:#2A2C30">  </span><span style="color:#2A2C30">}</span><span style="color:#2A2C30">}</span><br><br><span style="color:#9A3B26;font-style:normal;font-weight:bold">class </span><span style="color:#232527;font-style:normal;font-weight:bold">UserRepository</span><span style="color:#2A2C30"> </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">implements </span><span style="color:#232527;font-style:normal;font-weight:bold">Repository</span><span style="color:#5A5F66">&lt;</span><span style="color:#232527;font-style:normal;font-weight:bold">User</span><span style="color:#5A5F66">&gt;</span><span style="color:#2A2C30"> </span><span style="color:#2A2C30">{</span><br><span style="color:#2A2C30">  </span><span style="color:#7A5B8C;font-style:normal;font-weight:bold">private </span><span style="color:#2A2C30">cache</span><span style="color:#5A5F66"> = </span><span style="color:#9A3B26">new </span><span style="color:#232527;font-style:normal;font-weight:bold">Map</span><span style="color:#5A5F66">&lt;</span><span style="color:#232527">number</span><span style="color:#5A5F66">, </span><span style="color:#232527;font-style:normal;font-weight:bold">User</span><span style="color:#5A5F66">&gt;()</span><br><span style="color:#2A2C30">  </span><span style="color:#7A5B8C;font-style:normal;font-weight:bold">public </span><span style="color:#7A5B8C;font-style:normal;font-weight:bold">async </span><span style="color:#315D8C">find</span><span style="color:#5A5F66">(</span><span style="color:#6F6040;font-style:italic;font-weight:400">id</span><span style="color:#5A5F66">: </span><span style="color:#232527">number</span><span style="color:#5A5F66">): </span><span style="color:#232527;font-style:normal;font-weight:bold">Promise</span><span style="color:#5A5F66">&lt;</span><span style="color:#232527;font-style:normal;font-weight:bold">User</span><span style="color:#5A5F66"> | </span><span style="color:#846616">null</span><span style="color:#5A5F66">&gt;</span><span style="color:#2A2C30"> </span><span style="color:#2A2C30">{</span><br><span style="color:#2A2C30">    </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">return </span><span style="color:#5A5F66;font-style:italic;font-weight:400">this</span><span style="color:#5A5F66">.</span><span style="color:#2A2C30">cache</span><span style="color:#5A5F66">.</span><span style="color:#315D8C">get</span><span style="color:#5A5F66">(id)</span><span style="color:#2A2C30"> </span><span style="color:#9A3B26">?? </span><span style="color:#846616">null</span><br><span style="color:#2A2C30">  </span><span style="color:#2A2C30">}</span><span style="color:#2A2C30">}</span></div></div>
-  <div class="panel new"><div class="head">v2.7 新版 <span class="badge">远水蓝焦点 · 灰青注释</span></div>
-    <div class="code"><span style="color:#51686E;font-style:italic;font-weight:400">// 丹青 v2.7 — 山色空蒙雨亦奇</span><span style="color:#9A3B26;font-style:normal;font-weight:bold">import </span><span style="color:#5A5F66">{ defineStore } </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">from </span><span style="color:#1F7A85">&#x27;pinia&#x27;</span><br><span style="color:#9A3B26;font-style:normal;font-weight:bold">const </span><span style="color:#8A4B2F">API_BASE</span><span style="color:#5A5F66"> = </span><span style="color:#1F7A85">&#x27;https://api.example.com&#x27;</span><br><span style="color:#9A3B26;font-style:normal;font-weight:bold">export </span><span style="color:#2C2E31">function </span><span style="color:#315D8C">fetchUser</span><span style="color:#5A5F66">(</span><span style="color:#6F6040;font-style:italic;font-weight:400">id</span><span style="color:#5A5F66">: </span><span style="color:#2C2E31">number</span><span style="color:#5A5F66">)</span><span style="color:#5A5F66">: </span><span style="color:#2C2E31;font-style:normal;font-weight:bold">Promise</span><span style="color:#5A5F66">&lt;</span><span style="color:#2C2E31;font-style:normal;font-weight:bold">User</span><span style="color:#5A5F66">&gt;</span><span style="color:#383A3D"> </span><span style="color:#383A3D">{</span><br><span style="color:#383A3D">  </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">return </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">new </span><span style="color:#2C2E31;font-style:normal;font-weight:bold">Promise</span><span style="color:#383A3D">((resolve, reject) =&gt; </span><span style="color:#383A3D">{</span><br><span style="color:#383A3D">    </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">if </span><span style="color:#5A5F66">(</span><span style="color:#6F6040;font-style:italic;font-weight:400">id</span><span style="color:#5A5F66"> &lt;= </span><span style="color:#8A4B2F">0</span><span style="color:#5A5F66">)</span><span style="color:#383A3D"> </span><span style="color:#383A3D">{</span><br><span style="color:#383A3D">      </span><span style="color:#6F6040;font-style:italic;font-weight:400">reject</span><span style="color:#383A3D">(new </span><span style="color:#2C2E31;font-style:normal;font-weight:bold">Error</span><span style="color:#1F7A85">(&#x27;invalid id&#x27;))</span><span style="color:#383A3D">  </span><span style="color:#51686E;font-style:italic;font-weight:400">// FIXME: 边界校验</span><br><span style="color:#383A3D">    </span><span style="color:#383A3D">}</span><br><span style="color:#383A3D">    </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">const </span><span style="color:#383A3D">user</span><span style="color:#5A5F66">: </span><span style="color:#2C2E31;font-style:normal;font-weight:bold">User</span><span style="color:#5A5F66"> = </span><span style="color:#383A3D">{ </span><span style="color:#383A3D">id</span><span style="color:#5A5F66">, </span><span style="color:#383A3D">name</span><span style="color:#5A5F66">: </span><span style="color:#1F7A85">&#x27;青竹&#x27;</span><span style="color:#5A5F66">, </span><span style="color:#383A3D">tags</span><span style="color:#5A5F66">: </span><span style="color:#5A5F66">[</span><span style="color:#1F7A85">&#x27;admin&#x27;</span><span style="color:#5A5F66">]</span><span style="color:#383A3D"> }</span><br><span style="color:#383A3D">    </span><span style="color:#6F6040;font-style:italic;font-weight:400">resolve</span><span style="color:#5A5F66">(user)</span><br><span style="color:#383A3D">  </span><span style="color:#383A3D">}</span><span style="color:#383A3D">}</span><br><br><span style="color:#9A3B26;font-style:normal;font-weight:bold">class </span><span style="color:#2C2E31;font-style:normal;font-weight:bold">UserRepository</span><span style="color:#383A3D"> </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">implements </span><span style="color:#2C2E31;font-style:normal;font-weight:bold">Repository</span><span style="color:#5A5F66">&lt;</span><span style="color:#2C2E31;font-style:normal;font-weight:bold">User</span><span style="color:#5A5F66">&gt;</span><span style="color:#383A3D"> </span><span style="color:#383A3D">{</span><br><span style="color:#383A3D">  </span><span style="color:#7A5B8C">private </span><span style="color:#383A3D">cache</span><span style="color:#5A5F66"> = </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">new </span><span style="color:#2C2E31;font-style:normal;font-weight:bold">Map</span><span style="color:#5A5F66">&lt;</span><span style="color:#2C2E31">number</span><span style="color:#5A5F66">, </span><span style="color:#2C2E31;font-style:normal;font-weight:bold">User</span><span style="color:#5A5F66">&gt;()</span><br><span style="color:#383A3D">  </span><span style="color:#7A5B8C">public </span><span style="color:#7A5B8C">async </span><span style="color:#315D8C">find</span><span style="color:#5A5F66">(</span><span style="color:#6F6040;font-style:italic;font-weight:400">id</span><span style="color:#5A5F66">: </span><span style="color:#2C2E31">number</span><span style="color:#5A5F66">): </span><span style="color:#2C2E31;font-style:normal;font-weight:bold">Promise</span><span style="color:#5A5F66">&lt;</span><span style="color:#2C2E31;font-style:normal;font-weight:bold">User</span><span style="color:#5A5F66"> | </span><span style="color:#846616">null</span><span style="color:#5A5F66">&gt;</span><span style="color:#383A3D"> </span><span style="color:#383A3D">{</span><br><span style="color:#383A3D">    </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">return </span><span style="color:#5A5F66;font-style:italic;font-weight:400">this</span><span style="color:#5A5F66">.</span><span style="color:#383A3D">cache</span><span style="color:#5A5F66">.</span><span style="color:#315D8C">get</span><span style="color:#5A5F66">(id)</span><span style="color:#383A3D"> </span><span style="color:#9A3B26;font-style:normal;font-weight:bold">?? </span><span style="color:#846616">null</span><br><span style="color:#383A3D">  </span><span style="color:#383A3D">}</span><span style="color:#383A3D">}</span></div></div>
-</div>
+  <head>
+    <meta charset="utf-8" />
+    <title>水墨·丹青 v2.7 对比预览</title>
+    <style>
+      body {
+        background: #f6f5e1;
+        color: #383a3d;
+        font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        margin: 0;
+        padding: 32px 40px;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 0 0 4px;
+      }
+      .sub {
+        color: #5a5f66;
+        font-size: 13px;
+        margin-bottom: 28px;
+      }
+      .cols {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .panel {
+        flex: 1;
+        min-width: 420px;
+        background: #f6f5e1;
+        border: 1px solid #d8d3bc;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px #26262614;
+      }
+      .panel .head {
+        padding: 8px 14px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: #faf9f0;
+      }
+      .old .head {
+        background: #9a3b26;
+      }
+      .new .head {
+        background: #315d8c;
+      }
+      .code {
+        padding: 18px 20px;
+        font-family: 'SF Mono', Menlo, Consolas, monospace;
+        font-size: 13px;
+        line-height: 1.65;
+        min-height: 520px;
+      }
+      .badge {
+        float: right;
+        background: #faf9f0;
+        color: #383a3d;
+        border-radius: 20px;
+        padding: 1px 10px;
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+      h2 {
+        font-size: 16px;
+        margin: 32px 0 12px;
+        color: #2c2e31;
+        border-left: 4px solid #9a3b26;
+        padding-left: 10px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        background: #faf9f0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      th {
+        background: #ece8d0;
+        color: #2c2e31;
+        font-size: 12px;
+        padding: 7px 10px;
+        text-align: left;
+      }
+      td {
+        font-size: 13px;
+      }
+      code {
+        font-family: Menlo, Consolas, monospace;
+        background: #2626260d;
+        padding: 1px 5px;
+        border-radius: 3px;
+        font-size: 12px;
+      }
+      .foot {
+        margin-top: 24px;
+        color: #6e7278;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>水墨·丹青 v2.7 <span style="font-size: 14px; color: #9a3b26">改造预览</span></h1>
+    <div class="sub">同一段 TypeScript 样例 · 左: v2.4 现状 / 右: v2.7 改造后 · scope 级配色自动解析</div>
+    <div class="cols">
+      <div class="panel old">
+        <div class="head">v2.4 旧版 <span class="badge">朱砂焦点 · 松绿注释</span></div>
+        <div class="code">
+          <span style="color: #4c7548; font-style: italic; font-weight: 400">// 丹青 v2.7 — 山色空蒙雨亦奇</span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">import </span><span style="color: #5a5f66">{ defineStore } </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">from </span><span style="color: #1f7a85">&#x27;pinia&#x27;</span
+          ><br /><span style="color: #9a3b26">const </span><span style="color: #8a4b2f">API_BASE</span><span style="color: #5a5f66"> = </span
+          ><span style="color: #1f7a85">&#x27;https://api.example.com&#x27;</span><br /><span
+            style="color: #9a3b26; font-style: normal; font-weight: bold"
+            >export </span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">function </span><span style="color: #315d8c">fetchUser</span
+          ><span style="color: #5a5f66">(</span><span style="color: #6f6040; font-style: italic; font-weight: 400">id</span
+          ><span style="color: #5a5f66">: </span><span style="color: #232527">number</span><span style="color: #5a5f66">)</span
+          ><span style="color: #5a5f66">: </span><span style="color: #232527; font-style: normal; font-weight: bold">Promise</span
+          ><span style="color: #5a5f66">&lt;</span><span style="color: #232527; font-style: normal; font-weight: bold">User</span
+          ><span style="color: #5a5f66">&gt;</span><span style="color: #2a2c30"> </span><span style="color: #2a2c30">{</span><br /><span
+            style="color: #2a2c30"
+          >
+          </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">return </span><span style="color: #9a3b26">new </span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">Promise</span
+          ><span style="color: #2a2c30">((resolve, reject) =&gt; </span><span style="color: #2a2c30">{</span><br /><span style="color: #2a2c30">
+          </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">if </span><span style="color: #5a5f66">(</span
+          ><span style="color: #6f6040; font-style: italic; font-weight: 400">id</span><span style="color: #5a5f66"> &lt;= </span
+          ><span style="color: #8a4b2f">0</span><span style="color: #5a5f66">)</span><span style="color: #2a2c30"> </span
+          ><span style="color: #2a2c30">{</span><br /><span style="color: #2a2c30"> </span
+          ><span style="color: #6f6040; font-style: italic; font-weight: 400">reject</span><span style="color: #2a2c30">(new </span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">Error</span
+          ><span style="color: #1f7a85">(&#x27;invalid id&#x27;))</span><span style="color: #2a2c30"> </span
+          ><span style="color: #4c7548; font-style: italic; font-weight: 400">// FIXME: 边界校验</span><br /><span style="color: #2a2c30"> </span
+          ><span style="color: #2a2c30">}</span><br /><span style="color: #2a2c30"> </span><span style="color: #9a3b26">const </span
+          ><span style="color: #2a2c30">user</span><span style="color: #5a5f66">: </span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">User</span><span style="color: #5a5f66"> = </span
+          ><span style="color: #2a2c30">{ </span><span style="color: #2a2c30">id</span><span style="color: #5a5f66">, </span
+          ><span style="color: #2a2c30">name</span><span style="color: #5a5f66">: </span><span style="color: #1f7a85">&#x27;青竹&#x27;</span
+          ><span style="color: #5a5f66">, </span><span style="color: #2a2c30">tags</span><span style="color: #5a5f66">: </span
+          ><span style="color: #5a5f66">[</span><span style="color: #1f7a85">&#x27;admin&#x27;</span><span style="color: #5a5f66">]</span
+          ><span style="color: #2a2c30"> }</span><br /><span style="color: #2a2c30"> </span
+          ><span style="color: #6f6040; font-style: italic; font-weight: 400">resolve</span><span style="color: #5a5f66">(user)</span><br /><span
+            style="color: #2a2c30"
+          >
+          </span
+          ><span style="color: #2a2c30">}</span><span style="color: #2a2c30">}</span><br /><br /><span
+            style="color: #9a3b26; font-style: normal; font-weight: bold"
+            >class </span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">UserRepository</span><span style="color: #2a2c30"> </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">implements </span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">Repository</span><span style="color: #5a5f66">&lt;</span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">User</span><span style="color: #5a5f66">&gt;</span
+          ><span style="color: #2a2c30"> </span><span style="color: #2a2c30">{</span><br /><span style="color: #2a2c30"> </span
+          ><span style="color: #7a5b8c; font-style: normal; font-weight: bold">private </span><span style="color: #2a2c30">cache</span
+          ><span style="color: #5a5f66"> = </span><span style="color: #9a3b26">new </span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">Map</span><span style="color: #5a5f66">&lt;</span
+          ><span style="color: #232527">number</span><span style="color: #5a5f66">, </span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">User</span><span style="color: #5a5f66">&gt;()</span><br /><span
+            style="color: #2a2c30"
+          >
+          </span
+          ><span style="color: #7a5b8c; font-style: normal; font-weight: bold">public </span
+          ><span style="color: #7a5b8c; font-style: normal; font-weight: bold">async </span><span style="color: #315d8c">find</span
+          ><span style="color: #5a5f66">(</span><span style="color: #6f6040; font-style: italic; font-weight: 400">id</span
+          ><span style="color: #5a5f66">: </span><span style="color: #232527">number</span><span style="color: #5a5f66">): </span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">Promise</span><span style="color: #5a5f66">&lt;</span
+          ><span style="color: #232527; font-style: normal; font-weight: bold">User</span><span style="color: #5a5f66"> | </span
+          ><span style="color: #846616">null</span><span style="color: #5a5f66">&gt;</span><span style="color: #2a2c30"> </span
+          ><span style="color: #2a2c30">{</span><br /><span style="color: #2a2c30"> </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">return </span
+          ><span style="color: #5a5f66; font-style: italic; font-weight: 400">this</span><span style="color: #5a5f66">.</span
+          ><span style="color: #2a2c30">cache</span><span style="color: #5a5f66">.</span><span style="color: #315d8c">get</span
+          ><span style="color: #5a5f66">(id)</span><span style="color: #2a2c30"> </span><span style="color: #9a3b26">?? </span
+          ><span style="color: #846616">null</span><br /><span style="color: #2a2c30"> </span><span style="color: #2a2c30">}</span
+          ><span style="color: #2a2c30">}</span>
+        </div>
+      </div>
+      <div class="panel new">
+        <div class="head">v2.7 新版 <span class="badge">远水蓝焦点 · 灰青注释</span></div>
+        <div class="code">
+          <span style="color: #51686e; font-style: italic; font-weight: 400">// 丹青 v2.7 — 山色空蒙雨亦奇</span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">import </span><span style="color: #5a5f66">{ defineStore } </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">from </span><span style="color: #1f7a85">&#x27;pinia&#x27;</span
+          ><br /><span style="color: #9a3b26; font-style: normal; font-weight: bold">const </span><span style="color: #8a4b2f">API_BASE</span
+          ><span style="color: #5a5f66"> = </span><span style="color: #1f7a85">&#x27;https://api.example.com&#x27;</span><br /><span
+            style="color: #9a3b26; font-style: normal; font-weight: bold"
+            >export </span
+          ><span style="color: #2c2e31">function </span><span style="color: #315d8c">fetchUser</span><span style="color: #5a5f66">(</span
+          ><span style="color: #6f6040; font-style: italic; font-weight: 400">id</span><span style="color: #5a5f66">: </span
+          ><span style="color: #2c2e31">number</span><span style="color: #5a5f66">)</span><span style="color: #5a5f66">: </span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">Promise</span><span style="color: #5a5f66">&lt;</span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">User</span><span style="color: #5a5f66">&gt;</span
+          ><span style="color: #383a3d"> </span><span style="color: #383a3d">{</span><br /><span style="color: #383a3d"> </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">return </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">new </span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">Promise</span
+          ><span style="color: #383a3d">((resolve, reject) =&gt; </span><span style="color: #383a3d">{</span><br /><span style="color: #383a3d">
+          </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">if </span><span style="color: #5a5f66">(</span
+          ><span style="color: #6f6040; font-style: italic; font-weight: 400">id</span><span style="color: #5a5f66"> &lt;= </span
+          ><span style="color: #8a4b2f">0</span><span style="color: #5a5f66">)</span><span style="color: #383a3d"> </span
+          ><span style="color: #383a3d">{</span><br /><span style="color: #383a3d"> </span
+          ><span style="color: #6f6040; font-style: italic; font-weight: 400">reject</span><span style="color: #383a3d">(new </span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">Error</span
+          ><span style="color: #1f7a85">(&#x27;invalid id&#x27;))</span><span style="color: #383a3d"> </span
+          ><span style="color: #51686e; font-style: italic; font-weight: 400">// FIXME: 边界校验</span><br /><span style="color: #383a3d"> </span
+          ><span style="color: #383a3d">}</span><br /><span style="color: #383a3d"> </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">const </span><span style="color: #383a3d">user</span
+          ><span style="color: #5a5f66">: </span><span style="color: #2c2e31; font-style: normal; font-weight: bold">User</span
+          ><span style="color: #5a5f66"> = </span><span style="color: #383a3d">{ </span><span style="color: #383a3d">id</span
+          ><span style="color: #5a5f66">, </span><span style="color: #383a3d">name</span><span style="color: #5a5f66">: </span
+          ><span style="color: #1f7a85">&#x27;青竹&#x27;</span><span style="color: #5a5f66">, </span><span style="color: #383a3d">tags</span
+          ><span style="color: #5a5f66">: </span><span style="color: #5a5f66">[</span><span style="color: #1f7a85">&#x27;admin&#x27;</span
+          ><span style="color: #5a5f66">]</span><span style="color: #383a3d"> }</span><br /><span style="color: #383a3d"> </span
+          ><span style="color: #6f6040; font-style: italic; font-weight: 400">resolve</span><span style="color: #5a5f66">(user)</span><br /><span
+            style="color: #383a3d"
+          >
+          </span
+          ><span style="color: #383a3d">}</span><span style="color: #383a3d">}</span><br /><br /><span
+            style="color: #9a3b26; font-style: normal; font-weight: bold"
+            >class </span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">UserRepository</span><span style="color: #383a3d"> </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">implements </span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">Repository</span><span style="color: #5a5f66">&lt;</span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">User</span><span style="color: #5a5f66">&gt;</span
+          ><span style="color: #383a3d"> </span><span style="color: #383a3d">{</span><br /><span style="color: #383a3d"> </span
+          ><span style="color: #7a5b8c">private </span><span style="color: #383a3d">cache</span><span style="color: #5a5f66"> = </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">new </span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">Map</span><span style="color: #5a5f66">&lt;</span
+          ><span style="color: #2c2e31">number</span><span style="color: #5a5f66">, </span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">User</span><span style="color: #5a5f66">&gt;()</span><br /><span
+            style="color: #383a3d"
+          >
+          </span
+          ><span style="color: #7a5b8c">public </span><span style="color: #7a5b8c">async </span><span style="color: #315d8c">find</span
+          ><span style="color: #5a5f66">(</span><span style="color: #6f6040; font-style: italic; font-weight: 400">id</span
+          ><span style="color: #5a5f66">: </span><span style="color: #2c2e31">number</span><span style="color: #5a5f66">): </span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">Promise</span><span style="color: #5a5f66">&lt;</span
+          ><span style="color: #2c2e31; font-style: normal; font-weight: bold">User</span><span style="color: #5a5f66"> | </span
+          ><span style="color: #846616">null</span><span style="color: #5a5f66">&gt;</span><span style="color: #383a3d"> </span
+          ><span style="color: #383a3d">{</span><br /><span style="color: #383a3d"> </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">return </span
+          ><span style="color: #5a5f66; font-style: italic; font-weight: 400">this</span><span style="color: #5a5f66">.</span
+          ><span style="color: #383a3d">cache</span><span style="color: #5a5f66">.</span><span style="color: #315d8c">get</span
+          ><span style="color: #5a5f66">(id)</span><span style="color: #383a3d"> </span
+          ><span style="color: #9a3b26; font-style: normal; font-weight: bold">?? </span><span style="color: #846616">null</span><br /><span
+            style="color: #383a3d"
+          >
+          </span
+          ><span style="color: #383a3d">}</span><span style="color: #383a3d">}</span>
+        </div>
+      </div>
+    </div>
 
-<h2>关键角色变化</h2>
-<table><tr>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;font-weight:600">正文</td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2"><span style="display:inline-block;width:46px;height:18px;border-radius:4px;background:#2A2C30;border:1px solid #d8d3bc;vertical-align:middle;margin-right:6px"></span><code>#2A2C30</code></td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;color:#9A3B26">→</td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2"><span style="display:inline-block;width:46px;height:18px;border-radius:4px;background:#383A3D;border:1px solid #d8d3bc;vertical-align:middle;margin-right:6px"></span><code>#383A3D</code></td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;color:#5A5F66;font-size:12px">12.8:1 → 10.4:1, 进入 7~10 舒适区</td>
-        </tr><tr>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;font-weight:600">焦墨</td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2"><span style="display:inline-block;width:46px;height:18px;border-radius:4px;background:#232527;border:1px solid #d8d3bc;vertical-align:middle;margin-right:6px"></span><code>#232527</code></td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;color:#9A3B26">→</td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2"><span style="display:inline-block;width:46px;height:18px;border-radius:4px;background:#2C2E31;border:1px solid #d8d3bc;vertical-align:middle;margin-right:6px"></span><code>#2C2E31</code></td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;color:#5A5F66;font-size:12px">14.1:1 → 12.4:1, 保留强调层级</td>
-        </tr><tr>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;font-weight:600">注释</td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2"><span style="display:inline-block;width:46px;height:18px;border-radius:4px;background:#4C7548;border:1px solid #d8d3bc;vertical-align:middle;margin-right:6px"></span><code>#4C7548</code></td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;color:#9A3B26">→</td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2"><span style="display:inline-block;width:46px;height:18px;border-radius:4px;background:#51686E;border:1px solid #d8d3bc;vertical-align:middle;margin-right:6px"></span><code>#51686E</code></td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;color:#5A5F66;font-size:12px">松绿→灰青: 与 git added 绿解耦, 4.8→5.4:1</td>
-        </tr><tr>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;font-weight:600">焦点框</td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2"><span style="display:inline-block;width:46px;height:18px;border-radius:4px;background:#9A3B26;border:1px solid #d8d3bc;vertical-align:middle;margin-right:6px"></span><code>#9A3B26</code></td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;color:#9A3B26">→</td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2"><span style="display:inline-block;width:46px;height:18px;border-radius:4px;background:#315D8C;border:1px solid #d8d3bc;vertical-align:middle;margin-right:6px"></span><code>#315D8C</code></td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;color:#5A5F66;font-size:12px">朱砂→远水蓝: 与错误红解耦</td>
-        </tr><tr>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;font-weight:600">警告图标</td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2"><span style="display:inline-block;width:46px;height:18px;border-radius:4px;background:#8A4B2F;border:1px solid #d8d3bc;vertical-align:middle;margin-right:6px"></span><code>#8A4B2F</code></td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;color:#9A3B26">→</td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2"><span style="display:inline-block;width:46px;height:18px;border-radius:4px;background:#8A6D1F;border:1px solid #d8d3bc;vertical-align:middle;margin-right:6px"></span><code>#8A6D1F</code></td>
-          <td style="padding:5px 10px;border-bottom:1px solid #efe9d2;color:#5A5F66;font-size:12px">统一为藤黄警告族</td>
-        </tr></table>
+    <h2>关键角色变化</h2>
+    <table>
+      <tr>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; font-weight: 600">正文</td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2">
+          <span
+            style="
+              display: inline-block;
+              width: 46px;
+              height: 18px;
+              border-radius: 4px;
+              background: #2a2c30;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 6px;
+            "
+          ></span
+          ><code>#2A2C30</code>
+        </td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; color: #9a3b26">→</td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2">
+          <span
+            style="
+              display: inline-block;
+              width: 46px;
+              height: 18px;
+              border-radius: 4px;
+              background: #383a3d;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 6px;
+            "
+          ></span
+          ><code>#383A3D</code>
+        </td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; color: #5a5f66; font-size: 12px">12.8:1 → 10.4:1, 进入 7~10 舒适区</td>
+      </tr>
+      <tr>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; font-weight: 600">焦墨</td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2">
+          <span
+            style="
+              display: inline-block;
+              width: 46px;
+              height: 18px;
+              border-radius: 4px;
+              background: #232527;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 6px;
+            "
+          ></span
+          ><code>#232527</code>
+        </td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; color: #9a3b26">→</td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2">
+          <span
+            style="
+              display: inline-block;
+              width: 46px;
+              height: 18px;
+              border-radius: 4px;
+              background: #2c2e31;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 6px;
+            "
+          ></span
+          ><code>#2C2E31</code>
+        </td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; color: #5a5f66; font-size: 12px">14.1:1 → 12.4:1, 保留强调层级</td>
+      </tr>
+      <tr>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; font-weight: 600">注释</td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2">
+          <span
+            style="
+              display: inline-block;
+              width: 46px;
+              height: 18px;
+              border-radius: 4px;
+              background: #4c7548;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 6px;
+            "
+          ></span
+          ><code>#4C7548</code>
+        </td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; color: #9a3b26">→</td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2">
+          <span
+            style="
+              display: inline-block;
+              width: 46px;
+              height: 18px;
+              border-radius: 4px;
+              background: #51686e;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 6px;
+            "
+          ></span
+          ><code>#51686E</code>
+        </td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; color: #5a5f66; font-size: 12px">
+          松绿→灰青: 与 git added 绿解耦, 4.8→5.4:1
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; font-weight: 600">焦点框</td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2">
+          <span
+            style="
+              display: inline-block;
+              width: 46px;
+              height: 18px;
+              border-radius: 4px;
+              background: #9a3b26;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 6px;
+            "
+          ></span
+          ><code>#9A3B26</code>
+        </td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; color: #9a3b26">→</td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2">
+          <span
+            style="
+              display: inline-block;
+              width: 46px;
+              height: 18px;
+              border-radius: 4px;
+              background: #315d8c;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 6px;
+            "
+          ></span
+          ><code>#315D8C</code>
+        </td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; color: #5a5f66; font-size: 12px">朱砂→远水蓝: 与错误红解耦</td>
+      </tr>
+      <tr>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; font-weight: 600">警告图标</td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2">
+          <span
+            style="
+              display: inline-block;
+              width: 46px;
+              height: 18px;
+              border-radius: 4px;
+              background: #8a4b2f;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 6px;
+            "
+          ></span
+          ><code>#8A4B2F</code>
+        </td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; color: #9a3b26">→</td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2">
+          <span
+            style="
+              display: inline-block;
+              width: 46px;
+              height: 18px;
+              border-radius: 4px;
+              background: #8a6d1f;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 6px;
+            "
+          ></span
+          ><code>#8A6D1F</code>
+        </td>
+        <td style="padding: 5px 10px; border-bottom: 1px solid #efe9d2; color: #5a5f66; font-size: 12px">统一为藤黄警告族</td>
+      </tr>
+    </table>
 
-<h2>新色板角色表 (WCAG 实测)</h2>
-<table>
-  <tr><th>角色</th><th>色值</th><th>对比度</th><th>色族</th><th>字体</th></tr>
-  <tr>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">正文 / 变量</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">
-            <span style="display:inline-block;width:52px;height:20px;border-radius:4px;background:#383A3D;border:1px solid #d8d3bc;vertical-align:middle;margin-right:8px"></span>
-            <code style="font-size:12px">#383A3D</code>
-          </td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">10.36:1</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">水色</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">常规</td>
-        </tr><tr>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">类型 / 类 / 命名空间</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">
-            <span style="display:inline-block;width:52px;height:20px;border-radius:4px;background:#2C2E31;border:1px solid #d8d3bc;vertical-align:middle;margin-right:8px"></span>
-            <code style="font-size:12px">#2C2E31</code>
-          </td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">12.36:1</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">水色</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">粗体</td>
-        </tr><tr>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">行号 / 运算符</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">
-            <span style="display:inline-block;width:52px;height:20px;border-radius:4px;background:#5A5F66;border:1px solid #d8d3bc;vertical-align:middle;margin-right:8px"></span>
-            <code style="font-size:12px">#5A5F66</code>
-          </td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">5.84:1</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">水色</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">常规</td>
-        </tr><tr>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">注释</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">
-            <span style="display:inline-block;width:52px;height:20px;border-radius:4px;background:#51686E;border:1px solid #d8d3bc;vertical-align:middle;margin-right:8px"></span>
-            <code style="font-size:12px">#51686E</code>
-          </td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">5.36:1</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">水色</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">斜体</td>
-        </tr><tr>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">字符串 / 正则</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">
-            <span style="display:inline-block;width:52px;height:20px;border-radius:4px;background:#51686E;border:1px solid #d8d3bc;vertical-align:middle;margin-right:8px"></span>
-            <code style="font-size:12px">#51686E</code>
-          </td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">5.36:1</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">水色</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">常规</td>
-        </tr><tr>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">函数 / 方法</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">
-            <span style="display:inline-block;width:52px;height:20px;border-radius:4px;background:#315D8C;border:1px solid #d8d3bc;vertical-align:middle;margin-right:8px"></span>
-            <code style="font-size:12px">#315D8C</code>
-          </td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">6.20:1</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">水色</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">常规</td>
-        </tr><tr>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">关键字</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">
-            <span style="display:inline-block;width:52px;height:20px;border-radius:4px;background:#9A3B26;border:1px solid #d8d3bc;vertical-align:middle;margin-right:8px"></span>
-            <code style="font-size:12px">#9A3B26</code>
-          </td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">6.30:1</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">朱砂</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">粗体</td>
-        </tr><tr>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">数字 / 常量</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">
-            <span style="display:inline-block;width:52px;height:20px;border-radius:4px;background:#8A4B2F;border:1px solid #d8d3bc;vertical-align:middle;margin-right:8px"></span>
-            <code style="font-size:12px">#8A4B2F</code>
-          </td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">6.10:1</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">朱砂</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">常规</td>
-        </tr><tr>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">参数</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">
-            <span style="display:inline-block;width:52px;height:20px;border-radius:4px;background:#6F6040;border:1px solid #d8d3bc;vertical-align:middle;margin-right:8px"></span>
-            <code style="font-size:12px">#6F6040</code>
-          </td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">5.57:1</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">朱砂</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">斜体</td>
-        </tr><tr>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">修饰符</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">
-            <span style="display:inline-block;width:52px;height:20px;border-radius:4px;background:#7A5B8C;border:1px solid #d8d3bc;vertical-align:middle;margin-right:8px"></span>
-            <code style="font-size:12px">#7A5B8C</code>
-          </td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">5.15:1</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">水色</td>
-          <td style="padding:6px 10px;border-bottom:1px solid #e2ddc4">常规</td>
-        </tr>
-</table>
+    <h2>新色板角色表 (WCAG 实测)</h2>
+    <table>
+      <tr>
+        <th>角色</th>
+        <th>色值</th>
+        <th>对比度</th>
+        <th>色族</th>
+        <th>字体</th>
+      </tr>
+      <tr>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">正文 / 变量</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">
+          <span
+            style="
+              display: inline-block;
+              width: 52px;
+              height: 20px;
+              border-radius: 4px;
+              background: #383a3d;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          ></span>
+          <code style="font-size: 12px">#383A3D</code>
+        </td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">10.36:1</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">水色</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">常规</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">类型 / 类 / 命名空间</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">
+          <span
+            style="
+              display: inline-block;
+              width: 52px;
+              height: 20px;
+              border-radius: 4px;
+              background: #2c2e31;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          ></span>
+          <code style="font-size: 12px">#2C2E31</code>
+        </td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">12.36:1</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">水色</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">粗体</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">行号 / 运算符</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">
+          <span
+            style="
+              display: inline-block;
+              width: 52px;
+              height: 20px;
+              border-radius: 4px;
+              background: #5a5f66;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          ></span>
+          <code style="font-size: 12px">#5A5F66</code>
+        </td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">5.84:1</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">水色</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">常规</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">注释</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">
+          <span
+            style="
+              display: inline-block;
+              width: 52px;
+              height: 20px;
+              border-radius: 4px;
+              background: #51686e;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          ></span>
+          <code style="font-size: 12px">#51686E</code>
+        </td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">5.36:1</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">水色</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">斜体</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">字符串 / 正则</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">
+          <span
+            style="
+              display: inline-block;
+              width: 52px;
+              height: 20px;
+              border-radius: 4px;
+              background: #51686e;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          ></span>
+          <code style="font-size: 12px">#51686E</code>
+        </td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">5.36:1</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">水色</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">常规</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">函数 / 方法</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">
+          <span
+            style="
+              display: inline-block;
+              width: 52px;
+              height: 20px;
+              border-radius: 4px;
+              background: #315d8c;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          ></span>
+          <code style="font-size: 12px">#315D8C</code>
+        </td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">6.20:1</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">水色</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">常规</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">关键字</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">
+          <span
+            style="
+              display: inline-block;
+              width: 52px;
+              height: 20px;
+              border-radius: 4px;
+              background: #9a3b26;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          ></span>
+          <code style="font-size: 12px">#9A3B26</code>
+        </td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">6.30:1</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">朱砂</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">粗体</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">数字 / 常量</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">
+          <span
+            style="
+              display: inline-block;
+              width: 52px;
+              height: 20px;
+              border-radius: 4px;
+              background: #8a4b2f;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          ></span>
+          <code style="font-size: 12px">#8A4B2F</code>
+        </td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">6.10:1</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">朱砂</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">常规</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">参数</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">
+          <span
+            style="
+              display: inline-block;
+              width: 52px;
+              height: 20px;
+              border-radius: 4px;
+              background: #6f6040;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          ></span>
+          <code style="font-size: 12px">#6F6040</code>
+        </td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">5.57:1</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">朱砂</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">斜体</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">修饰符</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">
+          <span
+            style="
+              display: inline-block;
+              width: 52px;
+              height: 20px;
+              border-radius: 4px;
+              background: #7a5b8c;
+              border: 1px solid #d8d3bc;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          ></span>
+          <code style="font-size: 12px">#7A5B8C</code>
+        </td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">5.15:1</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">水色</td>
+        <td style="padding: 6px 10px; border-bottom: 1px solid #e2ddc4">常规</td>
+      </tr>
+    </table>
 
-<div class="foot">测试套件结果: 44 通过 / 0 失败 / 0 警告 · 全部 125 项静态 Token ≥ 4.5:1 · 注释 5.36:1 · 注释/正文可分辨 1.93:1</div>
-</body>
+    <div class="foot">测试套件结果: 44 通过 / 0 失败 / 0 警告 · 全部 125 项静态 Token ≥ 4.5:1 · 注释 5.36:1 · 注释/正文可分辨 1.93:1</div>
+  </body>
 </html>
