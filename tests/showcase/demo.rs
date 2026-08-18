@@ -2,7 +2,7 @@
 
 use std::fmt::{self, Display, Formatter};
 
-/// 纸张纹理枚举 (赭石常量 #845438)
+/// 纸张纹理枚举 (赭石常量 #8A4B2F)
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum PaperTexture {
     ShengXuan,
@@ -10,7 +10,7 @@ pub enum PaperTexture {
     ChengXinTang,
 }
 
-/// 笔触特征特质 (焦墨 #2A2D33)
+/// 笔触特征特质 (焦墨 #232527)
 pub trait CalligraphyStroke {
     fn stroke_name(&self) -> &'static str;
     fn draw<'a>(&'a self, canvas: &'a mut String) -> Result<(), fmt::Error>;
@@ -38,7 +38,7 @@ impl<'a> CalligraphyStroke for InkBrush<'a> {
     }
 
     fn draw<'b>(&'b self, canvas: &'b mut String) -> Result<(), fmt::Error> {
-        // 模式匹配与控制流 (朱砂红 #983029)
+        // 模式匹配与控制流 (朱砂红 #9A3B26)
         match self.texture {
             PaperTexture::ChengXinTang => {
                 canvas.push_str("【澄心玉版宣】秋水共长天一色\n");

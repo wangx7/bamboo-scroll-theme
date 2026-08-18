@@ -239,7 +239,7 @@ class ThemeTester:
         self.assert_true(editor_bg is not None, f"主画布背景已定义: {editor_bg}")
 
         if is_light:
-            self.assert_true(editor_bg in ('#F6F5E1', '#FDF6E3'), f"水墨·世界 主背景已精准设定为宋代澄心玉版宣 ({editor_bg})")
+            self.assert_true(editor_bg == '#F6F5E1', f"水墨·世界 主背景已精准设定为宋代澄心玉版宣 ({editor_bg})")
             # 校验无界一体感
             sidebar_bg = colors.get('sideBar.background')
             activity_bg = colors.get('activityBar.background')
@@ -266,15 +266,21 @@ class ThemeTester:
             pass_tokens = 0
             for tc in token_colors:
                 fg = tc.get('settings', {}).get('foreground')
-                scopes = tc.get('scope', [])
-                is_comment = 'comment' in str(scopes)
                 if fg and len(fg) == 7:
                     cr = contrast_ratio(editor_bg, fg)
                     checked_tokens += 1
-                    min_req = 2.5 if is_comment else 4.5
-                    if cr >= min_req:
+                    if cr >= 4.5:
                         pass_tokens += 1
-            self.assert_true(pass_tokens == checked_tokens, f"全静态语法 Token 满足护眼对比度规范 (正文/代码 >= 4.5:1, 注释轻灵化 >= 2.5:1) ({pass_tokens}/{checked_tokens} 项通过)")
+            self.assert_true(pass_tokens == checked_tokens, f"全静态语法 Token 满足长时护眼对比度规范 (含注释在内全部 >= 4.5:1 WCAG AA) ({pass_tokens}/{checked_tokens} 项通过)")
+
+            editor_fg = colors.get('editor.foreground')
+            comment_rule = next((tc for tc in token_colors if 'comment' in str(tc.get('scope', [])) and tc.get('settings', {}).get('foreground')), None)
+            if editor_fg and comment_rule:
+                comment_fg = comment_rule['settings']['foreground']
+                cr_comment = contrast_ratio(editor_bg, comment_fg)
+                cr_comment_code = contrast_ratio(comment_fg, editor_fg)
+                self.assert_true(cr_comment >= 4.5, f"注释与纸面背景对比度 {cr_comment:.2f}:1 (>= 4.5:1)")
+                self.assert_true(cr_comment_code >= 2.3, f"注释与正文可分辨性 {cr_comment_code:.2f}:1 (>= 2.3:1, 注释不再与内容粘连)")
 
         print(f"\n  \033[1;36m▶ 验证现代特性与语义高亮 (Semantic Highlighting):\033[0m")
         self.assert_true(theme.get('semanticHighlighting') is True, "已开启 semanticHighlighting: true")
@@ -295,7 +301,7 @@ class ThemeTester:
             ("demo.sql", "SQL (关键字 / 聚合查询 / 数据库定义)"),
             ("demo.json", "JSON (数据结构 / Schema / 键值对)"),
             ("demo_comments.ts", "注释全覆盖 (Better Comments / Todo Tree / JSDoc)"),
-            ("demo.md", "Markdown (H1-H4 阶梯墨色 / 引用 / 代码块 / 表格)")
+            ("demo.md", "Markdown (H1-H6 阶梯墨色 / 引用 / 代码块 / 表格)")
         ]
 
         for fname, desc in expected_files:

@@ -1,22 +1,22 @@
 {
   "$schema": "https://json.schemastore.org/package",
   "name": "shuimo-theme-showcase",
-  "version": "2.2.9",
+  "version": "2.3.0",
   "description": "水墨主题 JSON 数据高亮测试",
   "private": true,
   "config": {
     "canvas": {
-      "baseColor": "#FDF6E3",
+      "baseColor": "#F6F5E1",
       "elevation": "#FFFDF7",
       "luminance": 0.9234,
       "isSeamless": true
     },
     "palette": {
-      "cinnabar": "#983029",
-      "indigo": "#20526F",
-      "ochre": "#845438",
-      "bamboo": "#365F4F",
-      "deepInk": "#2A2D33"
+      "cinnabar": "#9A3B26",
+      "indigo": "#315D8C",
+      "ochre": "#8A4B2F",
+      "bamboo": "#1F7A85",
+      "deepInk": "#232527"
     },
     "tags": [
       "秋水共长天一色",

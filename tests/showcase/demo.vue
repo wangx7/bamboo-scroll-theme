@@ -58,7 +58,7 @@ const poemList = reactive<PoemItem[]>([
   }
 ]);
 
-// 计算属性与方法 (黛蓝花青测试)
+// 计算属性与方法 (花青蓝测试)
 const totalVerses = computed<number>(() => poemList.length);
 
 function handleScroll(event: MouseEvent): void {
@@ -72,12 +72,12 @@ onMounted(() => {
 
 <style scoped>
 .shuimo-container {
-  background-color: var(--shuimo-bg, #FDF6E3);
+  background-color: var(--shuimo-bg, #F6F5E1);
   color: #3A3C3F;
   padding: 24px;
 }
 .poem-title {
-  color: #2A2D33;
+  color: #232527;
   font-weight: bold;
 }
 </style>
