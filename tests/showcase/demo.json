@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package",
   "name": "shuimo-theme-showcase",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "水墨主题 JSON 数据高亮测试",
   "private": true,
   "config": {
@@ -12,10 +12,10 @@
       "isSeamless": true
     },
     "palette": {
-      "cinnabar": "#9A3B26",
-      "indigo": "#315D8C",
-      "ochre": "#8A4B2F",
-      "bamboo": "#1F7A85",
+      "cinnabar": "#8F3D2D",
+      "waterBlue": "#4A6A8A",
+      "heavyInk": "#3A3E43",
+      "poolCyan": "#2B6E64",
       "deepInk": "#232527"
     },
     "tags": [

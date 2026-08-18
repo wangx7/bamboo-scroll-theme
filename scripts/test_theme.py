@@ -9,6 +9,7 @@ import os
 import re
 import sys
 import argparse
+import colorsys
 
 def hex_to_rgb(hex_str):
     hex_str = hex_str.lstrip('#')
@@ -281,6 +282,30 @@ class ThemeTester:
                 cr_comment_code = contrast_ratio(comment_fg, editor_fg)
                 self.assert_true(cr_comment >= 4.5, f"注释与纸面背景对比度 {cr_comment:.2f}:1 (>= 4.5:1)")
                 self.assert_true(cr_comment_code >= 2.3, f"注释与正文可分辨性 {cr_comment_code:.2f}:1 (>= 2.3:1, 注释不再与内容粘连)")
+
+            # 水色约束：编辑区有色 token 只允许「水色系 + 朱砂」两族
+            token_fgs = []
+            for tc in token_colors:
+                fg = tc.get('settings', {}).get('foreground')
+                if fg and len(fg) == 7 and fg not in token_fgs:
+                    token_fgs.append(fg)
+            water_count = 0
+            cinnabar_count = 0
+            other_color = []
+            for fg in token_fgs:
+                r, g, b = hex_to_rgb(fg)
+                h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
+                if s >= 0.20:
+                    hue = h * 360.0
+                    if 120.0 <= hue <= 260.0:
+                        water_count += 1
+                    elif hue < 60.0 or hue > 340.0:
+                        cinnabar_count += 1
+                    else:
+                        other_color.append(f"{fg}(hue={hue:.0f},sat={s:.2f})")
+            self.assert_true(water_count > 0, f"编辑区保留水色系 token ({water_count} 种水色)")
+            self.assert_true(cinnabar_count > 0, f"编辑区保留朱砂 token ({cinnabar_count} 种朱砂)")
+            self.assert_true(len(other_color) == 0, f"编辑区无非水色/非朱砂的有彩色: {', '.join(other_color) if other_color else '无'}")
 
         print(f"\n  \033[1;36m▶ 验证现代特性与语义高亮 (Semantic Highlighting):\033[0m")
         self.assert_true(theme.get('semanticHighlighting') is True, "已开启 semanticHighlighting: true")

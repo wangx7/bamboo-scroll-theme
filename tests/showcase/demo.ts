@@ -2,7 +2,7 @@
  * 水墨主题 TypeScript 语法与语义高亮测试范例
  */
 
-// 1. 枚举与常量测试 (赭石矿彩 #8A4B2F)
+// 1. 枚举与常量测试 (重墨 #3A3E43)
 export enum ThemeVariant {
   SHIJIE = 'SHUIMO_SHIJIE',
   ZHUYUN = 'SHUIMO_ZHUYUN'
@@ -22,7 +22,7 @@ export interface CanvasConfig<TData extends Record<string, unknown>> {
 
 export type ResultTuple<T, E = Error> = [T | null, E | null];
 
-// 3. 类与装饰器测试 (焦墨类名 #232527 / 花青方法 #315D8C)
+// 3. 类与装饰器测试 (焦墨类名 #232527 / 远水蓝方法 #4A6A8A)
 function LogExecution(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
   descriptor.value = async function (...args: any[]) {
@@ -43,7 +43,7 @@ export class InkWashEngine<T extends { title: string }> {
   public async renderScene(data: T): Promise<ResultTuple<string>> {
     try {
       if (!this._isInitialized) {
-        // 控制流测试 (朱砂红 #9A3B26)
+        // 控制流测试 (朱砂 #8F3D2D)
         await this.init();
       }
 

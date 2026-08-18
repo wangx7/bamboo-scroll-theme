@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-// 结构体与标签测试 (焦墨 #232527 & 赭石 #8A4B2F)
+// 结构体与标签测试 (焦墨 #232527 & 重墨 #3A3E43)
 type ShuimoPoem struct {
 	ID        int64     `json:"id" db:"id"`
 	Title     string    `json:"title" db:"title"`
@@ -33,7 +33,7 @@ func NewCanvasEngine(name string) *CanvasEngine {
 	}
 }
 
-// 方法与控制流 (花青 #315D8C & 朱砂 #9A3B26)
+// 方法与控制流 (远水蓝 #4A6A8A & 朱砂 #8F3D2D)
 func (e *CanvasEngine) Render(ctx context.Context, p *ShuimoPoem) (string, error) {
 	e.mu.Lock()
 	defer e.mu.Unlock()

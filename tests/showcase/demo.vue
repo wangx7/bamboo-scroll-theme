@@ -1,6 +1,6 @@
 <template>
   <div class="shuimo-container">
-    <!-- Vue 大驼峰组件 (朱砂红加粗高亮测试) -->
+    <!-- Vue 大驼峰组件 (朱砂加粗高亮测试) -->
     <ShuimoHeader title="水墨·世界" :level="1">
       <template #extra>
         <ShuimoButton type="primary" @click="handleScroll">
@@ -58,7 +58,7 @@ const poemList = reactive<PoemItem[]>([
   }
 ]);
 
-// 计算属性与方法 (花青蓝测试)
+// 计算属性与方法 (远水蓝蓝测试)
 const totalVerses = computed<number>(() => poemList.length);
 
 function handleScroll(event: MouseEvent): void {
@@ -73,7 +73,7 @@ onMounted(() => {
 <style scoped>
 .shuimo-container {
   background-color: var(--shuimo-bg, #F6F5E1);
-  color: #3A3C3F;
+  color: #2A2C30;
   padding: 24px;
 }
 .poem-title {

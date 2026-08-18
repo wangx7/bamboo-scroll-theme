@@ -5,7 +5,7 @@ import math
 from typing import List, Dict, Optional, Tuple
 from dataclasses import dataclass
 
-# 常量定义 (赭石 #8A4B2F)
+# 常量定义 (重墨 #3A3E43)
 MAX_BUFFER_SIZE: int = 4096
 PI_CONSTANT: float = 3.1415926535
 
@@ -28,7 +28,7 @@ class CalligraphyCanvas:
         self._strokes: List[InkStroke] = []
 
     def add_stroke(self, stroke: InkStroke) -> None:
-        # 控制流测试 (朱砂红 #9A3B26)
+        # 控制流测试 (朱砂 #8F3D2D)
         if stroke.pressure <= 0:
             raise ValueError(f"笔压必须大于 0: {stroke.pressure}")
         

@@ -1,5 +1,5 @@
 -- 水墨主题 SQL 语法高亮测试
--- 关键字 (焦墨粗体 #232527) / 函数 (花青 #315D8C) / 表名与库名 (赭石 #8A4B2F)
+-- 关键字 (焦墨粗体 #232527) / 函数 (远水蓝 #4A6A8A) / 表名与库名 (重墨 #3A3E43)
 
 CREATE DATABASE IF NOT EXISTS shuimo_db CHARACTER SET utf8mb4;
 USE shuimo_db;
