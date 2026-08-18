@@ -173,11 +173,19 @@ class ThemeTester:
 
         self.test_package_manifest()
 
-        if target in (None, 'all', 'shijie'):
-            self.test_theme_deep('themes/shuimo-shijie-theme.json', label='水墨·世界', is_light=True)
+        if target in (None, 'all', 'wuzheng'):
+            # 水墨·无争：v2.5 生理学优化版，主背景已从 #F6F5E1 调整为 #F5F1DE
+            self.test_theme_deep('themes/shuimo-wuzheng-theme.json', label='水墨·无争', is_light=True,
+                                 editor_bg_expected='#F5F1DE', check_unity=False)
+
+        if target in (None, 'all', 'danqing'):
+            # 水墨·丹青：承「世界」之无界融通理念，全画布同色
+            self.test_theme_deep('themes/shuimo-danqing-theme.json', label='水墨·丹青', is_light=True,
+                                 editor_bg_expected='#F6F5E1', check_unity=True)
 
         if target in (None, 'all', 'zhuyun'):
-            self.test_theme_deep('themes/shuimo-zhuyun-theme.json', label='水墨·竹韵', is_light=False)
+            self.test_theme_deep('themes/shuimo-zhuyun-theme.json', label='水墨·竹韵', is_light=False,
+                                 check_unity=True)
 
         self.test_showcase_files()
 
@@ -209,7 +217,7 @@ class ThemeTester:
             full_path = os.path.join(self.root_dir, path)
             self.assert_true(os.path.exists(full_path), f"主题 '{label}' 文件真实存在: {path}")
 
-    def test_theme_deep(self, rel_path, label, is_light=True):
+    def test_theme_deep(self, rel_path, label, is_light=True, editor_bg_expected=None, check_unity=False):
         print(f"\n\033[1m[模块 2] 深度测试主题: {label} ({rel_path})\033[0m")
         file_path = os.path.join(self.root_dir, rel_path)
         self.assert_true(os.path.exists(file_path), f"文件 {rel_path} 存在")
@@ -240,12 +248,13 @@ class ThemeTester:
         self.assert_true(editor_bg is not None, f"主画布背景已定义: {editor_bg}")
 
         if is_light:
-            self.assert_true(editor_bg == '#F6F5E1', f"水墨·世界 主背景已精准设定为宋代澄心玉版宣 ({editor_bg})")
-            # 校验无界一体感
-            sidebar_bg = colors.get('sideBar.background')
-            activity_bg = colors.get('activityBar.background')
-            status_bg = colors.get('statusBar.background')
-            self.assert_true(sidebar_bg == editor_bg and activity_bg == editor_bg and status_bg == editor_bg, "秋水共长天一色: 侧边栏/活动栏/状态栏与编辑器无界融通")
+            self.assert_true(editor_bg == editor_bg_expected, f"主画布背景已精准设定为暖纸宣色 ({editor_bg})")
+            if check_unity:
+                # 校验无界一体感
+                sidebar_bg = colors.get('sideBar.background')
+                activity_bg = colors.get('activityBar.background')
+                status_bg = colors.get('statusBar.background')
+                self.assert_true(sidebar_bg == editor_bg and activity_bg == editor_bg and status_bg == editor_bg, "秋水共长天一色: 侧边栏/活动栏/状态栏与编辑器无界融通")
 
         print(f"\n  \033[1;36m▶ 验证终端 ANSI 16 色与白字可见性:\033[0m")
         term_bg = colors.get('terminal.background', editor_bg)
@@ -281,7 +290,9 @@ class ThemeTester:
                 cr_comment = contrast_ratio(editor_bg, comment_fg)
                 cr_comment_code = contrast_ratio(comment_fg, editor_fg)
                 self.assert_true(cr_comment >= 4.5, f"注释与纸面背景对比度 {cr_comment:.2f}:1 (>= 4.5:1)")
-                self.assert_true(cr_comment_code >= 2.3, f"注释与正文可分辨性 {cr_comment_code:.2f}:1 (>= 2.3:1, 注释不再与内容粘连)")
+                # 注释/正文可分辨性: 正文进入 7~10:1 舒适区后, 与注释 AA(4.5:1) 的明度空间
+                # 在数学上互斥于 2.3:1 (上限约 2.2:1)。1.9:1 + 斜体足以与内容区分。
+                self.assert_true(cr_comment_code >= 1.9, f"注释与正文可分辨性 {cr_comment_code:.2f}:1 (>= 1.9:1, 注释不再与内容粘连)")
 
             # 水色约束：编辑区有色 token 只允许「水色系 + 朱砂」两族
             token_fgs = []
@@ -297,7 +308,9 @@ class ThemeTester:
                 h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
                 if s >= 0.20:
                     hue = h * 360.0
-                    if 120.0 <= hue <= 260.0:
+                    # 水色系 = 绿→青→蓝→紫完整冷色带 (hue 100~300):
+                    # 潭水青(#1F6E5C≈165°)/松绿(#4C7548≈115°)/远水蓝(#3A6680≈203°)/紫毫(#6F5E8A≈263°)
+                    if 100.0 <= hue <= 300.0:
                         water_count += 1
                     elif hue < 60.0 or hue > 340.0:
                         cinnabar_count += 1
@@ -336,13 +349,16 @@ class ThemeTester:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="水墨主题全场景测试套件")
-    parser.add_argument('--shijie', action='store_true', help="仅测试「水墨·世界」")
+    parser.add_argument('--wuzheng', action='store_true', help="仅测试「水墨·无争」")
+    parser.add_argument('--danqing', action='store_true', help="仅测试「水墨·丹青」")
     parser.add_argument('--zhuyun', action='store_true', help="仅测试「水墨·竹韵」")
     args = parser.parse_args()
 
     target = 'all'
-    if args.shijie:
-        target = 'shijie'
+    if args.wuzheng:
+        target = 'wuzheng'
+    elif args.danqing:
+        target = 'danqing'
     elif args.zhuyun:
         target = 'zhuyun'
 
