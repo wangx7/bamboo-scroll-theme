@@ -95,7 +95,7 @@
     "minimap.selectionHighlight": "#2B6CB021",
     "minimap.errorHighlight": "#A8432A",
     "minimap.warningHighlight": "#9E7C16",
-    "minimap.background": "#FAF9F0",
+    "minimap.background": "#F6F5E1",
     "minimapSlider.background": "#2325270A",
     "minimapSlider.hoverBackground": "#23252714",
     "minimapSlider.activeBackground": "#23252721",
@@ -662,8 +662,7 @@
     },
     {
       "scope": [
-        "markup.heading",
-        "markup.heading entity.name"
+        "markup.heading"
       ],
       "settings": {
         "foreground": "#232527",
@@ -1352,10 +1351,334 @@
       }
     },
     {
-      "name": "Markdown H1",
+      "name": "Markdown H1 (朱砂)",
       "scope": [
         "markup.heading.1.markdown",
-        "heading.1.markdown"
+        "markup.heading.1.markdown entity.name",
+        "markup.heading.1.markdown entity.name.section",
+        "markup.heading.1.markdown entity.name.section.markdown",
+        "heading.1.markdown",
+        "heading.1.markdown entity.name",
+        "markup.heading.setext.1.markdown",
+        "markup.heading.setext.1.markdown entity.name"
+      ],
+      "settings": {
+        "foreground": "#A8432A",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown H2 (靛青)",
+      "scope": [
+        "markup.heading.2.markdown",
+        "markup.heading.2.markdown entity.name",
+        "markup.heading.2.markdown entity.name.section",
+        "markup.heading.2.markdown entity.name.section.markdown",
+        "heading.2.markdown",
+        "heading.2.markdown entity.name",
+        "markup.heading.setext.2.markdown",
+        "markup.heading.setext.2.markdown entity.name"
+      ],
+      "settings": {
+        "foreground": "#2B6CB0",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown H3 (竹青)",
+      "scope": [
+        "markup.heading.3.markdown",
+        "markup.heading.3.markdown entity.name",
+        "markup.heading.3.markdown entity.name.section",
+        "markup.heading.3.markdown entity.name.section.markdown",
+        "heading.3.markdown",
+        "heading.3.markdown entity.name"
+      ],
+      "settings": {
+        "foreground": "#3D6E56",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown H4 (紫藤)",
+      "scope": [
+        "markup.heading.4.markdown",
+        "markup.heading.4.markdown entity.name",
+        "markup.heading.4.markdown entity.name.section",
+        "markup.heading.4.markdown entity.name.section.markdown",
+        "heading.4.markdown",
+        "heading.4.markdown entity.name"
+      ],
+      "settings": {
+        "foreground": "#7B539E",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown H5 (赭石)",
+      "scope": [
+        "markup.heading.5.markdown",
+        "markup.heading.5.markdown entity.name",
+        "markup.heading.5.markdown entity.name.section",
+        "markup.heading.5.markdown entity.name.section.markdown",
+        "heading.5.markdown",
+        "heading.5.markdown entity.name"
+      ],
+      "settings": {
+        "foreground": "#B5651D",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown H6 (秋香)",
+      "scope": [
+        "markup.heading.6.markdown",
+        "markup.heading.6.markdown entity.name",
+        "markup.heading.6.markdown entity.name.section",
+        "markup.heading.6.markdown entity.name.section.markdown",
+        "heading.6.markdown",
+        "heading.6.markdown entity.name"
+      ],
+      "settings": {
+        "foreground": "#8C7A2B",
+        "fontStyle": "bold italic"
+      }
+    },
+    {
+      "name": "Markdown Heading Punctuation",
+      "scope": [
+        "punctuation.definition.heading.markdown",
+        "punctuation.definition.heading.setext.1.markdown",
+        "punctuation.definition.heading.setext.2.markdown"
+      ],
+      "settings": {
+        "foreground": "#8C929A",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Markdown Inline Code (紫藤)",
+      "scope": [
+        "markup.inline.raw.string.markdown",
+        "markup.inline.raw.markdown",
+        "markup.raw.inline.markdown"
+      ],
+      "settings": {
+        "foreground": "#7B539E",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown Inline Code Punctuation",
+      "scope": [
+        "punctuation.definition.raw.markdown",
+        "punctuation.definition.raw.code.markdown"
+      ],
+      "settings": {
+        "foreground": "#8C929A"
+      }
+    },
+    {
+      "name": "Markdown Code Block Language (靛青)",
+      "scope": [
+        "fenced_code.block.language.markdown",
+        "entity.name.tag.fenced_code.block.language.markdown"
+      ],
+      "settings": {
+        "foreground": "#2B6CB0",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown Code Block Fences (苔绿)",
+      "scope": [
+        "punctuation.definition.markdown.fenced_code_block",
+        "punctuation.definition.fenced_code.block",
+        "punctuation.definition.fenced.markdown"
+      ],
+      "settings": {
+        "foreground": "#7C9A72"
+      }
+    },
+    {
+      "name": "Markdown Bold (朱砂)",
+      "scope": [
+        "markup.bold.markdown",
+        "markup.bold"
+      ],
+      "settings": {
+        "foreground": "#A8432A",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown Bold Punctuation",
+      "scope": [
+        "punctuation.definition.bold.markdown"
+      ],
+      "settings": {
+        "foreground": "#8C929A",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Markdown Italic (竹青)",
+      "scope": [
+        "markup.italic.markdown",
+        "markup.italic"
+      ],
+      "settings": {
+        "foreground": "#3D6E56",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown Italic Punctuation",
+      "scope": [
+        "punctuation.definition.italic.markdown"
+      ],
+      "settings": {
+        "foreground": "#8C929A",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Markdown Strikethrough",
+      "scope": [
+        "markup.strikethrough.markdown",
+        "markup.strikethrough",
+        "punctuation.definition.strikethrough.markdown"
+      ],
+      "settings": {
+        "foreground": "#8C929A",
+        "fontStyle": "strikethrough"
+      }
+    },
+    {
+      "name": "Markdown Link Text & Title (靛青)",
+      "scope": [
+        "string.other.link.title.markdown",
+        "string.other.link.description.markdown",
+        "meta.link.inline.markdown"
+      ],
+      "settings": {
+        "foreground": "#2B6CB0",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "name": "Markdown Link URL (青碧)",
+      "scope": [
+        "markup.underline.link.markdown"
+      ],
+      "settings": {
+        "foreground": "#1A7A6D",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "name": "Markdown Image Alt Text (竹青)",
+      "scope": [
+        "string.other.link.description.title.markdown",
+        "meta.image.inline.markdown"
+      ],
+      "settings": {
+        "foreground": "#3D6E56"
+      }
+    },
+    {
+      "name": "Markdown Image URL (青碧)",
+      "scope": [
+        "markup.underline.link.image.markdown"
+      ],
+      "settings": {
+        "foreground": "#1A7A6D",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "name": "Markdown Link & Image Punctuation",
+      "scope": [
+        "punctuation.definition.image.markdown",
+        "punctuation.definition.link.markdown",
+        "punctuation.definition.metadata.markdown",
+        "punctuation.definition.string.begin.markdown",
+        "punctuation.definition.string.end.markdown"
+      ],
+      "settings": {
+        "foreground": "#8C929A"
+      }
+    },
+    {
+      "name": "Markdown Reference Links",
+      "scope": [
+        "constant.other.reference.link.markdown",
+        "meta.link.reference.markdown",
+        "meta.link.reference.def.markdown"
+      ],
+      "settings": {
+        "foreground": "#2B6CB0"
+      }
+    },
+    {
+      "name": "Markdown Blockquote Text (苔绿)",
+      "scope": [
+        "markup.quote.markdown",
+        "markup.quote"
+      ],
+      "settings": {
+        "foreground": "#5A7A52",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown Blockquote Punctuation (竹青)",
+      "scope": [
+        "punctuation.definition.quote.begin.markdown"
+      ],
+      "settings": {
+        "foreground": "#3D6E56",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown Unordered List Bullet (朱砂)",
+      "scope": [
+        "punctuation.definition.list.begin.markdown",
+        "beginning-of-line punctuation.definition.list.markdown",
+        "markup.list.unnumbered.bullet.markdown"
+      ],
+      "settings": {
+        "foreground": "#A8432A",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown Ordered List Number (赭石)",
+      "scope": [
+        "markup.list.numbered.bullet.markdown"
+      ],
+      "settings": {
+        "foreground": "#B5651D",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown Task List (竹青)",
+      "scope": [
+        "punctuation.definition.task.markdown",
+        "meta.task.markdown"
+      ],
+      "settings": {
+        "foreground": "#3D6E56",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown Table Header (焦墨)",
+      "scope": [
+        "meta.table.header.markdown",
+        "meta.table.header"
       ],
       "settings": {
         "foreground": "#232527",
@@ -1363,90 +1686,56 @@
       }
     },
     {
-      "name": "Markdown H2",
+      "name": "Markdown Table Borders & Dividers (烟灰)",
       "scope": [
-        "markup.heading.2.markdown",
-        "heading.2.markdown"
+        "punctuation.definition.table.markdown",
+        "meta.table.markdown punctuation",
+        "markup.other.table.markdown"
       ],
       "settings": {
-        "foreground": "#3A3E43",
+        "foreground": "#8C929A"
+      }
+    },
+    {
+      "name": "Markdown Horizontal Rule / Separator (朱砂)",
+      "scope": [
+        "meta.separator.markdown",
+        "punctuation.definition.thematic-break.markdown",
+        "markup.hr.markdown"
+      ],
+      "settings": {
+        "foreground": "#A8432A",
         "fontStyle": "bold"
       }
     },
     {
-      "name": "Markdown H3",
+      "name": "Markdown Frontmatter / YAML",
       "scope": [
-        "markup.heading.3.markdown",
-        "heading.3.markdown"
+        "punctuation.definition.metadata.markdown",
+        "punctuation.definition.frontmatter.markdown"
       ],
       "settings": {
-        "foreground": "#4A4F56",
-        "fontStyle": "bold"
+        "foreground": "#8C929A"
       }
     },
     {
-      "name": "Markdown H4",
+      "name": "Markdown Frontmatter Keys (紫藤)",
       "scope": [
-        "markup.heading.4.markdown",
-        "heading.4.markdown"
+        "meta.embedded.block.frontmatter entity.name.tag",
+        "meta.embedded.block.frontmatter string.unquoted"
       ],
       "settings": {
-        "foreground": "#5A5F66",
-        "fontStyle": "bold"
+        "foreground": "#7B539E"
       }
     },
     {
-      "name": "Markdown H5",
+      "name": "Markdown Footnotes (紫藤)",
       "scope": [
-        "markup.heading.5.markdown",
-        "heading.5.markdown"
+        "entity.name.footnote.markdown",
+        "meta.footnote.markdown"
       ],
       "settings": {
-        "foreground": "#6A6E74",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Markdown H6",
-      "scope": [
-        "markup.heading.6.markdown",
-        "heading.6.markdown"
-      ],
-      "settings": {
-        "foreground": "#6A6E74",
-        "fontStyle": "bold italic"
-      }
-    },
-    {
-      "name": "Markdown links",
-      "scope": [
-        "markup.underline.link.markdown",
-        "meta.link.inline.markdown",
-        "string.other.link.title.markdown"
-      ],
-      "settings": {
-        "foreground": "#2B6CB0"
-      }
-    },
-    {
-      "name": "Markdown quote",
-      "scope": [
-        "markup.quote.markdown"
-      ],
-      "settings": {
-        "foreground": "#4A4F56",
-        "fontStyle": "italic"
-      }
-    },
-    {
-      "name": "Markdown heading punctuation",
-      "scope": [
-        "punctuation.definition.heading.markdown",
-        "punctuation.definition.bold.markdown",
-        "punctuation.definition.italic.markdown"
-      ],
-      "settings": {
-        "foreground": "#5A5F66"
+        "foreground": "#7B539E"
       }
     },
     {
