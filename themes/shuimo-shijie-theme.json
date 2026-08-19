@@ -228,12 +228,12 @@
     "gitDecoration.ignoredResourceForeground": "#6E6A62",
     "gitDecoration.conflictingResourceForeground": "#9A7A1A",
     "gitDecoration.submoduleResourceForeground": "#7A4F92",
-    "statusBar.background": "#A8432A",
+    "statusBar.background": "#2D4B3E",
     "statusBar.foreground": "#FAF7EC",
     "statusBar.border": "#5C58521A",
     "statusBar.debuggingBackground": "#7E2E1C",
     "statusBar.debuggingForeground": "#F6F5E1",
-    "statusBar.noFolderBackground": "#A8432A",
+    "statusBar.noFolderBackground": "#2D4B3E",
     "statusBar.noFolderForeground": "#FAF7EC",
     "statusBarItem.activeBackground": "#FFFFFF26",
     "statusBarItem.hoverBackground": "#FFFFFF1A",
@@ -384,7 +384,7 @@
     "symbolIcon.booleanForeground": "#9A7A1A",
     "symbolIcon.classForeground": "#232120",
     "symbolIcon.colorForeground": "#1E7268",
-    "symbolIcon.constantForeground": "#B0611C",
+    "symbolIcon.constantForeground": "#A85A1A",
     "symbolIcon.constructorForeground": "#2E66A4",
     "symbolIcon.enumeratorForeground": "#9A7A1A",
     "symbolIcon.enumeratorMemberForeground": "#9A7A1A",
@@ -394,13 +394,13 @@
     "symbolIcon.folderForeground": "#5C5852",
     "symbolIcon.functionForeground": "#2E66A4",
     "symbolIcon.interfaceForeground": "#232120",
-    "symbolIcon.keyForeground": "#B0611C",
+    "symbolIcon.keyForeground": "#A85A1A",
     "symbolIcon.keywordForeground": "#A8432A",
     "symbolIcon.methodForeground": "#2E66A4",
     "symbolIcon.moduleForeground": "#232120",
     "symbolIcon.namespaceForeground": "#232120",
     "symbolIcon.nullForeground": "#9A7A1A",
-    "symbolIcon.numberForeground": "#B0611C",
+    "symbolIcon.numberForeground": "#A85A1A",
     "symbolIcon.objectForeground": "#4A463F",
     "symbolIcon.operatorForeground": "#5C5852",
     "symbolIcon.packageForeground": "#232120",
@@ -411,7 +411,7 @@
     "symbolIcon.structForeground": "#232120",
     "symbolIcon.textForeground": "#2A2C30",
     "symbolIcon.typeParameterForeground": "#7A4F92",
-    "symbolIcon.unitForeground": "#B0611C",
+    "symbolIcon.unitForeground": "#A85A1A",
     "symbolIcon.variableForeground": "#2A2C30",
     "chat.requestBackground": "#FAF7EC80",
     "chat.requestBorder": "#26262600",
@@ -442,7 +442,7 @@
         "string.comment"
       ],
       "settings": {
-        "foreground": "#7C9A72",
+        "foreground": "#648272",
         "fontStyle": "italic"
       }
     },
@@ -563,7 +563,7 @@
         "support.constant"
       ],
       "settings": {
-        "foreground": "#B0611C"
+        "foreground": "#A85A1A"
       }
     },
     {
@@ -593,7 +593,7 @@
         "constant.numeric"
       ],
       "settings": {
-        "foreground": "#B0611C"
+        "foreground": "#A85A1A"
       }
     },
     {
@@ -874,7 +874,7 @@
         "entity.other.attribute-name.id"
       ],
       "settings": {
-        "foreground": "#B0611C"
+        "foreground": "#A85A1A"
       }
     },
     {
@@ -911,7 +911,7 @@
         "keyword.other.unit.css"
       ],
       "settings": {
-        "foreground": "#B0611C"
+        "foreground": "#A85A1A"
       }
     },
     {
@@ -1273,12 +1273,12 @@
       }
     },
     {
-      "name": "Markdown 代码块围栏（苔绿）",
+      "name": "Markdown 代码块围栏（幽篁）",
       "scope": [
         "punctuation.definition.markdown.fenced_code_block"
       ],
       "settings": {
-        "foreground": "#7C9A72"
+        "foreground": "#648272"
       }
     },
     {
@@ -1427,7 +1427,7 @@
   ],
   "semanticTokenColors": {
     "comment": {
-      "foreground": "#7C9A72",
+      "foreground": "#648272",
       "fontStyle": "italic"
     },
     "keyword": {
@@ -1450,19 +1450,19 @@
       "foreground": "#1E7268"
     },
     "number": {
-      "foreground": "#B0611C"
+      "foreground": "#A85A1A"
     },
     "constant": {
-      "foreground": "#B0611C"
+      "foreground": "#A85A1A"
     },
     "boolean": {
-      "foreground": "#B0611C"
+      "foreground": "#A85A1A"
     },
     "variable": {
       "foreground": "#2A2C30"
     },
     "variable.readonly": {
-      "foreground": "#B0611C"
+      "foreground": "#A85A1A"
     },
     "variable.defaultLibrary": {
       "foreground": "#2A2C30"
@@ -1503,7 +1503,7 @@
       "foreground": "#3C6B53"
     },
     "enumMember": {
-      "foreground": "#B0611C"
+      "foreground": "#A85A1A"
     },
     "struct": {
       "foreground": "#3C6B53",
