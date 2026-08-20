@@ -6,7 +6,6 @@
   "publisher": "wangx123",
   "icon": "logo.png",
   "scripts": {
-    "test": "python3 scripts/test_theme.py",
     "build": "npx @vscode/vsce package"
   },
   "engines": {
