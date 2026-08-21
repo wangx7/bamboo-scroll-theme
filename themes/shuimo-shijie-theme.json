@@ -227,17 +227,17 @@
     "gitDecoration.ignoredResourceForeground": "#6E7278",
     "gitDecoration.conflictingResourceForeground": "#8A6D1F",
     "gitDecoration.submoduleResourceForeground": "#7A5B8C",
-    "statusBar.background": "#8A4B2F",
+    "statusBar.background": "#5C9286",
     "statusBar.foreground": "#FAF9F0",
     "statusBar.border": "#26262600",
-    "statusBar.debuggingBackground": "#8A4B2F",
+    "statusBar.debuggingBackground": "#5C9286",
     "statusBar.debuggingForeground": "#FAF9F0",
-    "statusBar.noFolderBackground": "#8A4B2F",
+    "statusBar.noFolderBackground": "#5C9286",
     "statusBar.noFolderForeground": "#FAF9F0",
-    "statusBarItem.activeBackground": "#0000001C",
-    "statusBarItem.hoverBackground": "#00000012",
-    "statusBarItem.prominentBackground": "#00000014",
-    "statusBarItem.prominentHoverBackground": "#00000020",
+    "statusBarItem.activeBackground": "#FFFFFF1C",
+    "statusBarItem.hoverBackground": "#FFFFFF12",
+    "statusBarItem.prominentBackground": "#FFFFFF14",
+    "statusBarItem.prominentHoverBackground": "#FFFFFF20",
     "statusBarItem.errorBackground": "#9A3B26",
     "statusBarItem.errorForeground": "#FAF9F0",
     "statusBarItem.warningBackground": "#8A6D1F",
@@ -1337,104 +1337,6 @@
       "scope": [
         "punctuation.section.embedded.begin",
         "punctuation.section.embedded.end"
-      ],
-      "settings": {
-        "foreground": "#5C5852"
-      }
-    },
-    {
-      "name": "Markdown H1",
-      "scope": [
-        "markup.heading.1.markdown",
-        "heading.1.markdown"
-      ],
-      "settings": {
-        "foreground": "#232527",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Markdown H2",
-      "scope": [
-        "markup.heading.2.markdown",
-        "heading.2.markdown"
-      ],
-      "settings": {
-        "foreground": "#3A3E43",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Markdown H3",
-      "scope": [
-        "markup.heading.3.markdown",
-        "heading.3.markdown"
-      ],
-      "settings": {
-        "foreground": "#4A4F56",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Markdown H4",
-      "scope": [
-        "markup.heading.4.markdown",
-        "heading.4.markdown"
-      ],
-      "settings": {
-        "foreground": "#5C5852",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Markdown H5",
-      "scope": [
-        "markup.heading.5.markdown",
-        "heading.5.markdown"
-      ],
-      "settings": {
-        "foreground": "#6A6E74",
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "Markdown H6",
-      "scope": [
-        "markup.heading.6.markdown",
-        "heading.6.markdown"
-      ],
-      "settings": {
-        "foreground": "#6A6E74",
-        "fontStyle": "bold italic"
-      }
-    },
-    {
-      "name": "Markdown links",
-      "scope": [
-        "markup.underline.link.markdown",
-        "meta.link.inline.markdown",
-        "string.other.link.title.markdown"
-      ],
-      "settings": {
-        "foreground": "#315D8C"
-      }
-    },
-    {
-      "name": "Markdown quote",
-      "scope": [
-        "markup.quote.markdown"
-      ],
-      "settings": {
-        "foreground": "#4A4F56",
-        "fontStyle": "italic"
-      }
-    },
-    {
-      "name": "Markdown heading punctuation",
-      "scope": [
-        "punctuation.definition.heading.markdown",
-        "punctuation.definition.bold.markdown",
-        "punctuation.definition.italic.markdown"
       ],
       "settings": {
         "foreground": "#5C5852"
