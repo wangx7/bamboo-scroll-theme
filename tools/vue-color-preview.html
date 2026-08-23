@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水墨 Theme · 向天空看齐</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #F0EEE4;
+    color: #2A2C30;
+    padding: 40px 24px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  h2 { font-size: 17px; font-weight: 700; margin: 8px 0 14px; }
+  .sub { font-size: 14px; color: #6E7278; margin-bottom: 24px; }
+  .sky {
+    background: #FFFFFF; border: 1px solid #D9D6C8; border-radius: 12px;
+    padding: 16px 20px; margin-bottom: 28px; font-size: 14px;
+  }
+  .sky .band { display: flex; border-radius: 6px; overflow: hidden; margin: 12px 0 8px; }
+  .sky .band div { flex: 1; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+  .sky .cap { font-size: 12px; color: #6E7278; }
+  .pane {
+    background: #FFFFFF;
+    border: 1px solid #D9D6C8;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  .pane-title {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 14px 20px 10px;
+  }
+  .pane-title .name { font-size: 16px; font-weight: 700; }
+  .pane-title .desc { font-size: 13px; color: #6E7278; }
+  .editor {
+    background: #F6F5E1;
+    border-radius: 8px;
+    margin: 0 20px 16px;
+    overflow-x: auto;
+    font-family: "SF Mono", Menlo, Consolas, "Courier New", monospace;
+    font-size: 13.5px;
+    line-height: 1.85;
+  }
+  .editor .row { display: flex; }
+  .editor .ln {
+    flex: 0 0 40px; text-align: right; padding-right: 14px;
+    color: #B4B2A9; user-select: none;
+  }
+  .editor .code { white-space: pre; color: #2A2C30; }
+  .notes { padding: 0 20px 18px; font-size: 13px; color: #5F5E5A; }
+  .notes li { margin: 4px 0 4px 18px; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; border: 1px solid rgba(0,0,0,.15); }
+  .mono { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 12.5px; }
+
+  .t  { color: #315D8C; }
+  .c  { color: #9A3B26; font-weight: 700; }
+  .d  { color: #7A5B8C; }
+  .a  { color: #5A5248; }
+  .s  { color: #1C7180; }
+  .i  { color: #7A5B8C; }
+  .k  { color: #9A3B26; font-weight: 700; }
+  .f  { color: #315D8C; }
+  .st { color: #232527; font-weight: 700; }
+  .ty { color: #232527; font-weight: 700; }
+  .pr { color: #2A2C30; }
+  .pa { color: #4E6C7E; font-style: italic; }
+  .cn { color: #1470A0; }
+  .n  { color: #8A4B2F; }
+  .p  { color: #5C5852; }
+  .cm { color: #6B655A; font-style: italic; }
+  .cl { color: #3F7388; font-style: italic; }
+  .cv { color: #3F7388; }
+
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; font-size: 13px; margin-top: 12px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #ECEAE0; }
+  th { background: #F6F5E1; font-weight: 700; font-size: 13px; }
+  .footer { font-size: 13px; color: #6E7278; margin-top: 24px; }
+  .change { background: #fff; border: 1px solid #D9D6C8; border-radius: 12px; padding: 16px 20px; margin-bottom: 32px; font-size: 13.5px; }
+  .change li { margin: 5px 0 5px 20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>向天空看齐 · 黄系清零</h1>
+  <p class="sub">宣纸为暖，文字全冷——「暖纸冷墨」。文字层所有黄系颜色已替换为天空系，配色已写入 themes/shuimo-hua-theme.json。</p>
+
+  <div class="sky">
+    <h2>文字色 · 天空梯度</h2>
+    <div class="band">
+      <div style="background:#1C7180;color:#fff">青 186°</div>
+      <div style="background:#3F7388;color:#fff">苍青深 197°</div>
+      <div style="background:#4E6C7E;color:#fff">苍青 202°</div>
+      <div style="background:#1470A0;color:#fff">靛青 201°</div>
+      <div style="background:#315D8C;color:#fff">藏青 211°</div>
+      <div style="background:#7A5B8C;color:#fff">黛紫 278°</div>
+    </div>
+    <p class="cap">从地平线（青·字符串）到天顶（藏青·名词），加上暮色（黛紫·逻辑层）——文字色相从 186° 到 278°，暖黄完全退场。暖色只剩赭红（点睛）与赭褐（数字，红棕族非黄族）。</p>
+  </div>
+
+  <div class="pane">
+    <div class="pane-title">
+      <span class="name">Vue 3 · script setup</span>
+      <span class="desc">模板 + 组合式 API + scoped 样式</span>
+    </div>
+    <div class="editor">
+<div class="row"><span class="ln">1</span><span class="code"><span class="p">&lt;</span><span class="t">template</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">2</span><span class="code">  <span class="p">&lt;</span><span class="t">div</span> <span class="a">class</span><span class="p">=</span><span class="s">"card"</span> <span class="d">v-if</span><span class="p">=</span><span class="s">"visible"</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">3</span><span class="code">    <span class="p">&lt;</span><span class="c">MyButton</span> <span class="d">:size</span><span class="p">=</span><span class="s">"lg"</span> <span class="d">@click</span><span class="p">=</span><span class="s">"save"</span><span class="p">&gt;</span>保存<span class="p">&lt;/</span><span class="c">MyButton</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">4</span><span class="code">    <span class="p">&lt;</span><span class="t">input</span> <span class="d">v-model</span><span class="p">=</span><span class="s">"query"</span> <span class="a">placeholder</span><span class="p">=</span><span class="s">"搜索"</span> <span class="p">/&gt;</span></span></div>
+<div class="row"><span class="ln">5</span><span class="code">    <span class="p">&lt;</span><span class="t">p</span> <span class="d">v-for</span><span class="p">=</span><span class="s">"(item, i) in list"</span> <span class="d">:key</span><span class="p">=</span><span class="s">"i"</span><span class="p">&gt;</span><span class="i">{{</span> <span class="f">format</span>(<span class="pa">item</span>) <span class="i">}}</span> · <span class="i">{{</span> <span class="s">count</span> + <span class="n">1</span> <span class="i">}}</span><span class="p">&lt;/</span><span class="t">p</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">6</span><span class="code">  <span class="p">&lt;/</span><span class="t">div</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">7</span><span class="code"><span class="p">&lt;/</span><span class="t">template</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">8</span><span class="code"></span></div>
+<div class="row"><span class="ln">9</span><span class="code"><span class="p">&lt;</span><span class="t">script</span> <span class="a">setup</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">10</span><span class="code"><span class="k">import</span> <span class="p">{</span> <span class="f">ref</span><span class="p">,</span> <span class="f">computed</span> <span class="p">}</span> <span class="k">from</span> <span class="s">'vue'</span></span></div>
+<div class="row"><span class="ln">11</span><span class="code"></span></div>
+<div class="row"><span class="ln">12</span><span class="code"><span class="st">const</span> props = <span class="f">defineProps</span>&lt;<span class="p">{</span> <span class="pr">title</span>: <span class="ty">string</span> <span class="p">}</span>&gt;()</span></div>
+<div class="row"><span class="ln">13</span><span class="code"><span class="st">const</span> emit = <span class="f">defineEmits</span>([<span class="s">'save'</span>])</span></div>
+<div class="row"><span class="ln">14</span><span class="code"><span class="st">const</span> query = <span class="f">ref</span>(<span class="cn">false</span>)</span></div>
+<div class="row"><span class="ln">15</span><span class="code"><span class="st">const</span> count = <span class="f">computed</span>(() =&gt; props.<span class="pr">title</span>.<span class="pr">length</span>)</span></div>
+<div class="row"><span class="ln">16</span><span class="code"></span></div>
+<div class="row"><span class="ln">17</span><span class="code"><span class="st">function</span> <span class="f">save</span>(<span class="pa">val</span>) {</span></div>
+<div class="row"><span class="ln">18</span><span class="code">  <span class="f">emit</span>(<span class="s">'save'</span>, <span class="pa">val</span>.<span class="pr">value</span>)</span></div>
+<div class="row"><span class="ln">19</span><span class="code">}</span></div>
+<div class="row"><span class="ln">20</span><span class="code"><span class="p">&lt;/</span><span class="t">script</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">21</span><span class="code"></span></div>
+<div class="row"><span class="ln">22</span><span class="code"><span class="p">&lt;</span><span class="t">style</span> <span class="a">scoped</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">23</span><span class="code"><span class="t">.card</span> { <span class="a">padding</span>: <span class="n">8px</span> <span class="cv">auto</span>; <span class="a">color</span>: <span class="n">#2a2c30</span>; }</span></div>
+<div class="row"><span class="ln">24</span><span class="code"><span class="t">.card</span><span class="cl">:hover</span> { <span class="a">border-color</span>: <span class="n">#315d8c</span>; <span class="a">transition</span>: <span class="cv">all</span> <span class="n">0.3s</span>; }</span></div>
+<div class="row"><span class="ln">25</span><span class="code"><span class="p">&lt;/</span><span class="t">style</span><span class="p">&gt;</span></span></div>
+    </div>
+    <ul class="notes">
+      <li><span class="dot" style="background:#1470A0"></span><code>false/true/null</code>（常量）→ 靛青 <code>#1470A0</code>，对比 4.95:1——「常量如晴空」</li>
+      <li><span class="dot" style="background:#4E6C7E"></span>参数（<code>item/val</code>）→ 苍青 <code>#4E6C7E</code> 斜体，5.06:1——安静如远云，不再卡其</li>
+      <li><span class="dot" style="background:#3F7388"></span>CSS 值（<code>auto/all</code>）与伪类（<code>:hover</code>）→ 苍青深 <code>#3F7388</code>，4.74:1</li>
+      <li>style 段现在的观感：选择器藏青、伪类苍青、属性名暖墨、值苍青深、数字赭褐——一行之内无黄</li>
+    </ul>
+  </div>
+
+  <div class="pane">
+    <div class="pane-title">
+      <span class="name">Vue 2 · options API</span>
+      <span class="desc">filter 管道、slot 作用域、常量与参数</span>
+    </div>
+    <div class="editor">
+<div class="row"><span class="ln">1</span><span class="code"><span class="p">&lt;</span><span class="t">template</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">2</span><span class="code">  <span class="p">&lt;</span><span class="t">div</span> <span class="a">class</span><span class="p">=</span><span class="s">"price"</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">3</span><span class="code">    <span class="p">&lt;</span><span class="t">span</span><span class="p">&gt;</span><span class="i">{{</span> <span class="pr">price</span> <span class="p">|</span> currency <span class="i">}}</span><span class="p">&lt;/</span><span class="t">span</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">4</span><span class="code">    <span class="p">&lt;</span><span class="t">slot</span> <span class="a">name</span><span class="p">=</span><span class="s">"header"</span> <span class="d">:row</span><span class="p">=</span><span class="s">"row"</span><span class="p">&gt;&lt;/</span><span class="t">slot</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">5</span><span class="code">  <span class="p">&lt;/</span><span class="t">div</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">6</span><span class="code"><span class="p">&lt;/</span><span class="t">template</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">7</span><span class="code"></span></div>
+<div class="row"><span class="ln">8</span><span class="code"><span class="p">&lt;</span><span class="t">script</span><span class="p">&gt;</span></span></div>
+<div class="row"><span class="ln">9</span><span class="code"><span class="k">export</span> <span class="k">default</span> {</span></div>
+<div class="row"><span class="ln">10</span><span class="code">  <span class="pr">props</span>: { <span class="pr">price</span>: <span class="ty">Number</span> },</span></div>
+<div class="row"><span class="ln">11</span><span class="code">  <span class="pr">data</span>() {</span></div>
+<div class="row"><span class="ln">12</span><span class="code">    <span class="k">return</span> { <span class="pr">row</span>: <span class="cn">null</span>, <span class="pr">ready</span>: <span class="cn">true</span> }</span></div>
+<div class="row"><span class="ln">13</span><span class="code">  },</span></div>
+<div class="row"><span class="ln">14</span><span class="code">  <span class="pr">methods</span>: {</span></div>
+<div class="row"><span class="ln">15</span><span class="code">    <span class="f">format</span>(<span class="pa">v</span>) { <span class="k">return</span> <span class="pa">v</span>.<span class="f">toFixed</span>(<span class="n">2</span>) }</span></div>
+<div class="row"><span class="ln">16</span><span class="code">  }</span></div>
+<div class="row"><span class="ln">17</span><span class="code">}</span></div>
+<div class="row"><span class="ln">18</span><span class="code"><span class="p">&lt;/</span><span class="t">script</span><span class="p">&gt;</span></span></div>
+    </div>
+    <ul class="notes">
+      <li><code>null/true</code> 靛青、参数 <code>v</code> 苍青斜体——Vue 2 与 Vue 3 同一套天空</li>
+      <li>filter 管道 <code>{{ price | currency }}</code>、作用域插槽 <code>&lt;slot :row&gt;</code> 全部自动兼容</li>
+    </ul>
+  </div>
+
+  <h2>颜色的化学反应总表（天空版）</h2>
+  <table>
+    <tr><th>颜色</th><th>职责</th><th>出现位置</th></tr>
+    <tr><td><span class="dot" style="background:#1C7180"></span>青 <code>#1C7180</code> 186°</td><td>值</td><td>字符串、模板属性值、正则——地平线</td></tr>
+    <tr><td><span class="dot" style="background:#3F7388"></span>苍青深 <code>#3F7388</code> 197°</td><td>文风值</td><td>CSS 值、伪类、diff changed</td></tr>
+    <tr><td><span class="dot" style="background:#4E6C7E"></span>苍青 <code>#4E6C7E</code> 202°</td><td>远云</td><td>函数参数、Python self、Rust 生命周期——安静的低饱和层</td></tr>
+    <tr><td><span class="dot" style="background:#1470A0"></span>靛青 <code>#1470A0</code> 201°</td><td>常量</td><td>true/false/null、enum 成员、SQL 表名、Ruby 符号——高饱和，晴空般醒目</td></tr>
+    <tr><td><span class="dot" style="background:#315D8C"></span>藏青 <code>#315D8C</code> 211°</td><td>名词骨架</td><td>标签、函数/方法、类选择器、JSON 键——天顶</td></tr>
+    <tr><td><span class="dot" style="background:#7A5B8C"></span>黛紫 <code>#7A5B8C</code> 278°</td><td>逻辑层</td><td>指令、插值、TS 修饰符——暮色</td></tr>
+    <tr><td><span class="dot" style="background:#5A5248"></span>暖墨 <code>#5A5248</code></td><td>墨骨</td><td>HTML/CSS 属性名（中性墨，非黄）</td></tr>
+    <tr><td><span class="dot" style="background:#9A3B26"></span>赭红 <code>#9A3B26</code> 粗体</td><td>点睛</td><td>关键字、组件——唯一的暖主角</td></tr>
+    <tr><td><span class="dot" style="background:#8A4B2F"></span>赭褐 <code>#8A4B2F</code></td><td>数量</td><td>数字、CSS 单位——红棕族（赭石颜料），非黄族</td></tr>
+  </table>
+
+  <div class="change">
+    <h2>本轮写入 shuimo-hua-theme.json 的改动（17 处）</h2>
+    <ul>
+      <li>文字层黄系清零（11 处）：常量/枚举/SQL/Ruby → 靛青 <code>#1470A0</code>；CSS 值/伪类/diff changed → 苍青深 <code>#3F7388</code>；参数/self/生命周期（tokenColors + semantic）→ 苍青 <code>#4E6C7E</code></li>
+      <li>括号层级色闭环：层级 2 同步新青 <code>#1C7180</code>、层级 4 黄 → 靛青 <code>#1470A0</code></li>
+      <li>大纲图标同步：boolean/null/enumerator 图标 → 靛青（与常量色一致）</li>
+      <li>保留的功能性黄（UI 信号，非文字）：警告波浪线、终端 ansiYellow、图表 yellow、git 冲突、测试队列——黄=警告是交通灯语义，建议保留</li>
+    </ul>
+  </div>
+
+  <p class="footer">在 VS Code 里 <span class="mono">Cmd+Shift+P</span> → 「Developer: Reload Window」查看效果。暖纸冷墨：背景 57° 的暖黄与文字 186°–278° 的冷色形成稳定的冷暖对比，黄色系只剩 UI 警告信号。</p>
+</div>
+</body>
+</html>
