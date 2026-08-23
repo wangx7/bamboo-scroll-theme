@@ -21,14 +21,9 @@
   "contributes": {
     "themes": [
       {
-        "label": "水墨画舫",
+        "label": "水墨画",
         "uiTheme": "vs",
         "path": "./themes/shuimo-hua-theme.json"
-      },
-      {
-        "label": "水墨无痕",
-        "uiTheme": "vs",
-        "path": "./themes/shuimo-wuhen-theme.json"
       }
     ]
   }
