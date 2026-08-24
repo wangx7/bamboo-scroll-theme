@@ -21,9 +21,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "水墨画",
+        "label": "水墨·烟雨",
         "uiTheme": "vs",
-        "path": "./themes/shuimo-hua-theme.json"
+        "path": "./themes/shuimo-yanyu-theme.json"
+      },
+      {
+        "label": "水墨·繁花",
+        "uiTheme": "vs",
+        "path": "./themes/shuimo-fanhua-theme.json"
       }
     ]
   }

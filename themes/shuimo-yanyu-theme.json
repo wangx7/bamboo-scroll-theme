@@ -1,6 +1,6 @@
 {
   "$schema": "vscode://schemas/color-theme",
-  "name": "水墨画",
+  "name": "水墨·烟雨",
   "type": "light",
   "semanticHighlighting": true,
   "colors": {
@@ -301,8 +301,6 @@
     "terminalCursor.foreground": "#A23B29",
     "debugToolBar.background": "#FAF9F0",
     "debugToolBar.border": "#26262600",
-    "dialog.background": "#FAF9F0",
-    "dialog.foreground": "#232527",
     "debugExceptionWidget.background": "#9A3B261F",
     "debugExceptionWidget.border": "#26262600",
     "testing.iconFailed": "#A23B29",
@@ -356,7 +354,6 @@
     "keybindingLabel.foreground": "#2A2C30",
     "keybindingLabel.border": "#26262600",
     "keybindingLabel.bottomBorder": "#26262600",
-    "keybindingTable.headerForeground": "#232527",
     "keybindingTable.rowsBackground": "#FAF9F080",
     "commandCenter.foreground": "#5A5F66",
     "commandCenter.background": "#FAF9F0",
