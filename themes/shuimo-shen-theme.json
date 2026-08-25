@@ -549,7 +549,7 @@
         "support.function.builtin"
       ],
       "settings": {
-        "foreground": "#5BC0A4"
+        "foreground": "#D5D0C4"
       }
     },
     {
@@ -562,7 +562,7 @@
         "support.variable"
       ],
       "settings": {
-        "foreground": "#D5D0C4"
+        "foreground": "#C2BDB2"
       }
     },
     {
@@ -861,7 +861,7 @@
         "vue.sfc.style.variable.injection.v-bind entity.name.function"
       ],
       "settings": {
-        "foreground": "#5BC0A4",
+        "foreground": "#6B9BD2",
         "fontStyle": "bold"
       }
     }
@@ -911,7 +911,7 @@
       "fontStyle": "italic"
     },
     "variable": {
-      "foreground": "#D5D0C4"
+      "foreground": "#C2BDB2"
     },
     "variable.readonly": {
       "foreground": "#6B9BD2"
@@ -946,31 +946,31 @@
       "foreground": "#6B9BD2"
     },
     "event": {
-      "foreground": "#5BC0A4"
+      "foreground": "#D5D0C4"
     },
     "function": {
-      "foreground": "#5BC0A4"
+      "foreground": "#D5D0C4"
     },
     "function.declaration": {
-      "foreground": "#5BC0A4"
+      "foreground": "#D5D0C4"
     },
     "function.defaultLibrary": {
-      "foreground": "#5BC0A4"
+      "foreground": "#D5D0C4"
     },
     "function.static": {
-      "foreground": "#5BC0A4"
+      "foreground": "#D5D0C4"
     },
     "method": {
-      "foreground": "#5BC0A4"
+      "foreground": "#D5D0C4"
     },
     "method.declaration": {
-      "foreground": "#5BC0A4"
+      "foreground": "#D5D0C4"
     },
     "method.defaultLibrary": {
-      "foreground": "#5BC0A4"
+      "foreground": "#D5D0C4"
     },
     "method.static": {
-      "foreground": "#5BC0A4"
+      "foreground": "#D5D0C4"
     },
     "macro": {
       "foreground": "#8A8578",
