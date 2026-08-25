@@ -1,6 +1,6 @@
 {
   "$schema": "vscode://schemas/color-theme",
-  "name": "水墨画",
+  "name": "水墨·浅",
   "type": "light",
   "semanticHighlighting": true,
   "colors": {
@@ -148,7 +148,7 @@
     "editorRuler.foreground": "#5A5F6614",
     "editor.linkedEditingBackground": "#315D8C18",
     "editor.foldBackground": "#2626260D",
-    "editorError.foreground": "#A23B29",
+    "editorError.foreground": "#9D2933",
     "editorWarning.foreground": "#8A6D1F",
     "editorInfo.foreground": "#315D8C",
     "editorHint.foreground": "#5A5F66",
@@ -229,14 +229,14 @@
     "gitDecoration.ignoredResourceForeground": "#6E7278",
     "gitDecoration.conflictingResourceForeground": "#8A6D1F",
     "gitDecoration.submoduleResourceForeground": "#7A5B8C",
-    "statusBar.background": "#5C9286",
-    "statusBar.foreground": "#FAF9F0",
+    "statusBar.background": "#F6F5E1",
+    "statusBar.foreground": "#5C5852",
     "statusBar.border": "#26262600",
     "statusBar.debuggingBackground": "#9D2933",
     "statusBar.debuggingForeground": "#FAF9F0",
-    "statusBar.noFolderBackground": "#5C9286",
-    "statusBar.noFolderForeground": "#FAF9F0",
-    "statusBarItem.activeBackground": "#FFFFFF1C",
+    "statusBar.noFolderBackground": "#F6F5E1",
+    "statusBar.noFolderForeground": "#5C5852",
+    "statusBarItem.activeBackground": "#2626261C",
     "statusBarItem.hoverBackground": "#FFFFFF12",
     "statusBarItem.prominentBackground": "#FFFFFF14",
     "statusBarItem.prominentHoverBackground": "#FFFFFF20",
@@ -496,7 +496,8 @@
         "storage.type.namespace"
       ],
       "settings": {
-        "foreground": "#2A2C30"
+        "foreground": "#5A5D54",
+        "fontStyle": "italic"
       }
     },
     {
@@ -604,13 +605,21 @@
       }
     },
     {
-      "name": "Data Values (Strings, Numbers, Constants, Booleans)",
+      "name": "Strings & Regex",
       "scope": [
         "string",
         "string.quoted",
         "string.template",
         "punctuation.definition.string",
-        "string.regexp",
+        "string.regexp"
+      ],
+      "settings": {
+        "foreground": "#2E59A7"
+      }
+    },
+    {
+      "name": "Numbers & Constants",
+      "scope": [
         "constant.numeric",
         "constant.language",
         "constant.character",
@@ -621,7 +630,7 @@
         "support.constant"
       ],
       "settings": {
-        "foreground": "#2E59A7"
+        "foreground": "#B05628"
       }
     },
     {
@@ -992,7 +1001,7 @@
       "foreground": "#2E59A7"
     },
     "number": {
-      "foreground": "#2E59A7"
+      "foreground": "#B05628"
     },
     "regexp": {
       "foreground": "#2E59A7"
