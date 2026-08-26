@@ -2,11 +2,11 @@
   "name": "shuimo-theme",
   "displayName": "水墨 Theme",
   "description": "几抹淡墨涵万象，一帧素宣蕴乾坤。",
-  "version": "3.1.1",
+  "version": "3.3.0",
   "publisher": "wangx123",
   "icon": "logo.png",
   "scripts": {
-    "build": "npx @vscode/vsce package"
+    "build": "npx --no-install vsce package"
   },
   "engines": {
     "vscode": "^1.101.0"
@@ -26,9 +26,9 @@
         "path": "./themes/shuimo-qian-theme.json"
       },
       {
-        "label": "水墨·深",
+        "label": "水墨 - IntelliJ New UI",
         "uiTheme": "vs-dark",
-        "path": "./themes/shuimo-shen-theme.json"
+        "path": "./themes/shuimo-intellij-new-ui-theme.json"
       }
     ]
   }
