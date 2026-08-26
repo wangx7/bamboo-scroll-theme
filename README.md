@@ -7,8 +7,16 @@
 ## 包含主题
 
 1. **水墨 · 浅 (Shuimo Light)**：素宣底色（#F6F5E1）、浓淡墨色、朱砂红关键字与指示条、黛蓝常量与字符串、苍翠绿注释，典雅质朴。
+
+   ![水墨 · 浅](docs/shuimo-qian.png)
+
 2. **水墨 · 土 (Shuimo Earth)**：基于 JetBrains 最新 **IntelliJ New UI (Dark)** 沉稳配色体系（#1E1F22 编辑器底色、#2B2D30 工作台背景、#3574F0 品牌蓝指示），现代精致。
+
+   ![水墨 · 土](docs/shuimo-tu.png)
+
 3. **水墨 · 水 (Shuimo Water)**：基于 **VS Code 经典 Dark+** 深色配色体系（#1E1E1E 编辑器底色、#252526 工作台背景），润物无声，清晰自然。
+
+   ![水墨 · 水](docs/shuimo-shui.png)
 
 ## 使用
 

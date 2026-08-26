@@ -4,6 +4,7 @@
   "description": "几抹淡墨涵万象，一帧素宣蕴乾坤。",
   "version": "3.3.0",
   "publisher": "wangx123",
+  "license": "MIT",
   "icon": "logo.png",
   "scripts": {
     "build": "npx --no-install vsce package"
