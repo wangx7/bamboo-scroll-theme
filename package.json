@@ -21,14 +21,19 @@
   "contributes": {
     "themes": [
       {
-        "label": "水墨·浅",
+        "label": "水墨 · 浅",
         "uiTheme": "vs",
         "path": "./themes/shuimo-qian-theme.json"
       },
       {
-        "label": "水墨 - IntelliJ New UI",
+        "label": "水墨 · 土",
         "uiTheme": "vs-dark",
-        "path": "./themes/shuimo-intellij-new-ui-theme.json"
+        "path": "./themes/shuimo-tu-theme.json"
+      },
+      {
+        "label": "水墨 · 水",
+        "uiTheme": "vs-dark",
+        "path": "./themes/shuimo-shui-theme.json"
       }
     ]
   }
