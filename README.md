@@ -1,25 +1,25 @@
 # 水墨 Theme (Shuimo Theme)
 
-几抹淡墨涵万象，一帧素宣蕴乾坤。
+> 几抹淡墨涵万象，一帧素宣蕴乾坤。深度适配 Trae、VS Code、Cursor 的高雅水墨配色。
 
-一款精心打磨的高雅代码配色主题扩展。
+![Trae 适配效果](https://raw.githubusercontent.com/wangx7/shuimo-theme/master/docs/shuimo-trae.png)
 
 ## 包含主题
 
-1. **水墨 · 浅 (Shuimo Light)**：素宣底色（#F6F5E1）、浓淡墨色、朱砂红关键字与指示条、黛蓝常量与字符串、苍翠绿注释，典雅质朴。
+1. **水墨 · 浅 (Shuimo Light)**：素宣底色配浓淡水墨，典雅质朴。
 
    ![水墨 · 浅](https://raw.githubusercontent.com/wangx7/shuimo-theme/master/docs/shuimo-qian.png)
 
-2. **水墨 · 土 (Shuimo Earth)**：基于 JetBrains 最新 **IntelliJ New UI (Dark)** 沉稳配色体系（#1E1F22 编辑器底色、#2B2D30 工作台背景、#3574F0 品牌蓝指示），现代精致。
+2. **水墨 · 土 (Shuimo Earth)**：JetBrains New UI 沉稳深色体系，现代精致。
 
    ![水墨 · 土](https://raw.githubusercontent.com/wangx7/shuimo-theme/master/docs/shuimo-tu.png)
 
-3. **水墨 · 水 (Shuimo Water)**：基于 **VS Code 经典 Dark+** 深色配色体系（#1E1E1E 编辑器底色、#252526 工作台背景），润物无声，清晰自然。
+3. **水墨 · 水 (Shuimo Water)**：VS Code 经典 Dark+ 深度优化，纯净自然。
 
    ![水墨 · 水](https://raw.githubusercontent.com/wangx7/shuimo-theme/master/docs/shuimo-shui.png)
 
 ## 使用
 
-1. 在扩展市场搜索并安装 `水墨 Theme`。
-2. 按快捷键 `Ctrl+Shift+P`（Mac 为 `Cmd+Shift+P`），输入 `Preferences: Color Theme`。
-3. 选择对应主题（`水墨 · 浅`、`水墨 · 土` 或 `水墨 · 水`）。
+1. **市场安装**：搜索 `水墨 Theme` 直接安装。
+2. **离线安装**：下载 [shuimo-theme-3.3.3.vsix](https://raw.githubusercontent.com/wangx7/shuimo-theme/main/shuimo-theme-3.3.3.vsix)，在扩展面板菜单选择 `从 VSIX 安装...`。
+3. **切换主题**：按 `Cmd/Ctrl + Shift + P` 输入 `Color Theme` 切换。
