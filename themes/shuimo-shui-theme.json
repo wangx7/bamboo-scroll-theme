@@ -146,7 +146,7 @@
     "notificationsWarningIcon.foreground": "#c29e49",
     "notificationsInfoIcon.foreground": "#3574f0",
     "editorGroup.border": "#00000000",
-    "editorGroup.emptyBackground": "#252526",
+    "editorGroup.emptyBackground": "#1E1E1E",
     "editorGroupHeader.noTabsBackground": "#1E1E1E",
     "editorGroupHeader.tabsBackground": "#252526",
     "editorGroupHeader.tabsBorder": "#00000000",
