@@ -21,5 +21,5 @@
 ## 使用
 
 1. **市场安装**：搜索 `水墨 Theme` 直接安装。
-2. **离线安装**：下载 [shuimo-theme-3.3.5.vsix](https://raw.githubusercontent.com/wangx7/shuimo-theme/main/shuimo-theme-3.3.5.vsix)，在扩展面板菜单选择 `从 VSIX 安装...`。
+2. **离线安装**：下载 [shuimo-theme-3.3.6.vsix](https://raw.githubusercontent.com/wangx7/shuimo-theme/main/shuimo-theme-3.3.6.vsix)，在扩展面板菜单选择 `从 VSIX 安装...`。
 3. **切换主题**：按 `Cmd/Ctrl + Shift + P` 输入 `Color Theme` 切换。
