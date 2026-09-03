@@ -1,5 +1,5 @@
 {
-  "name": "水墨·浅",
+  "name": "水墨 · 浅",
   "type": "light",
   "semanticHighlighting": true,
   "colors": {
@@ -235,9 +235,9 @@
     "statusBar.noFolderBackground": "#F6F5E1",
     "statusBar.noFolderForeground": "#5C5852",
     "statusBarItem.activeBackground": "#2626261C",
-    "statusBarItem.hoverBackground": "#FFFFFF12",
-    "statusBarItem.prominentBackground": "#FFFFFF14",
-    "statusBarItem.prominentHoverBackground": "#FFFFFF20",
+    "statusBarItem.hoverBackground": "#26262612",
+    "statusBarItem.prominentBackground": "#26262615",
+    "statusBarItem.prominentHoverBackground": "#26262622",
     "statusBarItem.errorBackground": "#A23B29",
     "statusBarItem.errorForeground": "#FAF9F0",
     "statusBarItem.warningBackground": "#8A6D1F",
